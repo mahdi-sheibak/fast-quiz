@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+pnpm install
+
+hasOnRemote=$(git ls-remote --heads origin $(git branch --show-current))
+
+if [ "$hasOnRemote" ]
+then
+  echo "\033[33m ============= pull from origin... ============= \033[0m"
+  git pull origin $(git branch --show-current)
+else
+  exit 0
+fi
