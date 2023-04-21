@@ -123,7 +123,7 @@ export function TypographyInlineCode({
 
 interface TypographyParagraphProps
   extends Omit<React.HTMLProps<HTMLParagraphElement>, "children"> {
-  children: string
+  children: string | React.ReactNode
 }
 
 export function TypographyP({
