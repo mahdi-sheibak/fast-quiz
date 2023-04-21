@@ -14,7 +14,7 @@
       "addWords": true
     }
   ],
-  "dictionaries": ["skill-test-en", "skill-test-fa"],
+  "dictionaries": ["fast-quiz-en", "fast-quiz-fa"],
   "ignorePaths": ["node_modules", ".turbo", ".next", "pnpm-lock.yaml"],
   "import": ["@cspell/dict-fa-ir/cspell-ext.json"]
 }
