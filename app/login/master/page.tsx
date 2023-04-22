@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card"
 import { TypographyP } from "@/components/ui/typography"
 
-export default function MasterLogin() {
+export default function LoginMaster() {
   return (
     <main className="flex items-center justify-around h-screen">
       <Card className="w-[350px] ">
