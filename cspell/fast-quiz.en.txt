@@ -3,3 +3,4 @@ lucide
 tailwindcss
 commitlint
 threejs
+hookform
