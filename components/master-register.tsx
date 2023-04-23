@@ -16,10 +16,10 @@ export function MasterRegisterForm() {
       onSubmit={onSubmit}
       schema={masterSchema}
     >
-      <Form.Field label="نام و نام خانوادگی" name="fullName" />
-      <Form.Field label="دانشگاه" name="university" />
-      <Form.Field label="ایمیل" name="email" />
-      <Form.Field label="رمز عبور" name="password" />
+      <Form.Field<Master> label="نام و نام خانوادگی" name="fullName" />
+      <Form.Field<Master> label="دانشگاه" name="university" />
+      <Form.Field<Master> label="ایمیل" name="email" />
+      <Form.Field<Master> label="رمز عبور" name="password" />
       <Form.Submit className="w-1/2">ثبت نام</Form.Submit>
     </Form>
   )

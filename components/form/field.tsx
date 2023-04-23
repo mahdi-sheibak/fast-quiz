@@ -7,12 +7,12 @@ import { Input, InputProps } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { TypographyMuted } from "../ui/typography"
 
-export interface FieldProps extends InputProps {
-  name: string
+export interface FieldProps<T> extends Omit<InputProps, "name"> {
+  name: keyof T
   label: string
 }
 
-export function Field({ label, name, ...otherProps }: FieldProps) {
+export function Field<T>({ label, name, ...otherProps }: FieldProps<T>) {
   const {
     register,
     formState: { errors },
@@ -20,15 +20,15 @@ export function Field({ label, name, ...otherProps }: FieldProps) {
 
   return (
     <div className="flex flex-col space-y-1.5">
-      <Label htmlFor={name}>{label}:</Label>
+      <Label htmlFor={name.toString()}>{label}:</Label>
       <Input
-        id={name}
+        id={name.toString()}
         type="text"
         placeholder={label}
-        {...register(name)}
+        {...register(name.toString())}
         {...otherProps}
       />
-      {errors[name] && errors[name]?.message && (
+      {errors[name]?.message && (
         <TypographyMuted>{errors[name]?.message?.toString()}</TypographyMuted>
       )}
     </div>
