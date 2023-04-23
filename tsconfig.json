@@ -10,7 +10,6 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "noImplicitThis": false, // remove this
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",

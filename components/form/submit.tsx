@@ -2,10 +2,13 @@ import { Button, ButtonProps } from "@/components/ui/button"
 
 export interface SubmitProps extends ButtonProps {}
 
-export function Submit({ ...props }: SubmitProps) {
+const Submit = ({ children, ...otherProps }: SubmitProps) => {
   return (
-    <Button {...props} type="submit">
-      ثبت نام
+    <Button {...otherProps} type="submit">
+      {children}
     </Button>
   )
 }
+Submit.displayName = "Submit"
+
+export { Submit }

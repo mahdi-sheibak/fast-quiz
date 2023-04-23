@@ -1,34 +1,32 @@
 import React from "react"
-import { useFormContext } from "react-hook-form"
+import { UseFormRegisterReturn, useFormContext } from "react-hook-form"
 
 import { Input, InputProps } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { TypographyMuted } from "../ui/typography"
 
-export interface FieldProps<T> extends Omit<InputProps, "name"> {
-  name: keyof T
+export interface FieldProps extends InputProps {
   label: string
+  register: UseFormRegisterReturn<string>
 }
 
-export function Field<T>({ label, name, ...otherProps }: FieldProps<T>) {
+const Field = ({ label, register, ...otherProps }: FieldProps) => {
   const {
-    register,
     formState: { errors },
   } = useFormContext()
 
+  const name = register.name
+
   return (
     <div className="flex flex-col space-y-1.5">
-      <Label htmlFor={name.toString()}>{label}:</Label>
-      <Input
-        id={name.toString()}
-        type="text"
-        placeholder={label}
-        {...register(name.toString())}
-        {...otherProps}
-      />
+      <Label htmlFor={name}>{label}:</Label>
+      <Input id={name} placeholder={label} {...register} {...otherProps} />
       {errors[name]?.message && (
         <TypographyMuted>{errors[name]?.message?.toString()}</TypographyMuted>
       )}
     </div>
   )
 }
+Field.displayName = "Field"
+
+export { Field }

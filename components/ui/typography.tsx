@@ -6,11 +6,11 @@ interface TypographyHeadingProps
   children: string
 }
 
-export function TypographyH1({
+const TypographyH1 = ({
   children,
   className,
   ...otherProps
-}: TypographyHeadingProps) {
+}: TypographyHeadingProps) => {
   return (
     <h1
       className={clsx(
@@ -23,12 +23,13 @@ export function TypographyH1({
     </h1>
   )
 }
+TypographyH1.displayName = "TypographyH1"
 
-export function TypographyH2({
+const TypographyH2 = ({
   children,
   className,
   ...otherProps
-}: TypographyHeadingProps) {
+}: TypographyHeadingProps) => {
   return (
     <h2
       className={clsx(
@@ -41,12 +42,13 @@ export function TypographyH2({
     </h2>
   )
 }
+TypographyH1.displayName = "TypographyH2"
 
-export function TypographyH3({
+const TypographyH3 = ({
   children,
   className,
   ...otherProps
-}: TypographyHeadingProps) {
+}: TypographyHeadingProps) => {
   return (
     <h3
       className={clsx(
@@ -59,12 +61,13 @@ export function TypographyH3({
     </h3>
   )
 }
+TypographyH1.displayName = "TypographyH3"
 
-export function TypographyH4({
+const TypographyH4 = ({
   children,
   className,
   ...otherProps
-}: TypographyHeadingProps) {
+}: TypographyHeadingProps) => {
   return (
     <h4
       className={clsx(
@@ -77,17 +80,18 @@ export function TypographyH4({
     </h4>
   )
 }
+TypographyH1.displayName = "TypographyH4"
 
 interface TypographyQuoteProps
   extends Omit<React.HTMLProps<HTMLQuoteElement>, "children"> {
   children: string
 }
 
-export function TypographyBlockquote({
+const TypographyBlockquote = ({
   children,
   className,
   ...otherProps
-}: TypographyQuoteProps) {
+}: TypographyQuoteProps) => {
   return (
     <blockquote
       className={clsx("mt-6 border-l-2 pl-6 italic", className)}
@@ -97,17 +101,18 @@ export function TypographyBlockquote({
     </blockquote>
   )
 }
+TypographyH1.displayName = "TypographyBlockquote"
 
 interface TypographyInlineCodeProps
   extends Omit<React.HTMLProps<HTMLElement>, "children"> {
   children: string
 }
 
-export function TypographyInlineCode({
+const TypographyInlineCode = ({
   children,
   className,
   ...otherProps
-}: TypographyInlineCodeProps) {
+}: TypographyInlineCodeProps) => {
   return (
     <code
       className={clsx(
@@ -120,17 +125,18 @@ export function TypographyInlineCode({
     </code>
   )
 }
+TypographyH1.displayName = "TypographyInlineCode"
 
 interface TypographyParagraphProps
   extends Omit<React.HTMLProps<HTMLParagraphElement>, "children"> {
   children: string | React.ReactNode
 }
 
-export function TypographyP({
+const TypographyP = ({
   children,
   className,
   ...otherProps
-}: TypographyParagraphProps) {
+}: TypographyParagraphProps) => {
   return (
     <p
       className={clsx("leading-7 [&:not(:first-child)]:mt-6", className)}
@@ -140,12 +146,13 @@ export function TypographyP({
     </p>
   )
 }
+TypographyH1.displayName = "TypographyP"
 
-export function TypographyLead({
+const TypographyLead = ({
   children,
   className,
   ...otherProps
-}: TypographyParagraphProps) {
+}: TypographyParagraphProps) => {
   return (
     <p
       className={clsx("text-xl text-muted-foreground", className)}
@@ -155,12 +162,13 @@ export function TypographyLead({
     </p>
   )
 }
+TypographyH1.displayName = "TypographyLead"
 
-export function TypographyMuted({
+const TypographyMuted = ({
   children,
   className,
   ...otherProps
-}: TypographyParagraphProps) {
+}: TypographyParagraphProps) => {
   return (
     <p
       className={clsx("text-sm text-muted-foreground", className)}
@@ -170,17 +178,18 @@ export function TypographyMuted({
     </p>
   )
 }
+TypographyH1.displayName = "TypographyMuted"
 
 interface TypographySmallProps
   extends Omit<React.HTMLProps<HTMLElement>, "children"> {
   children: string
 }
 
-export function TypographySmall({
+const TypographySmall = ({
   children,
   className,
   ...otherProps
-}: TypographySmallProps) {
+}: TypographySmallProps) => {
   return (
     <small
       className={clsx("text-sm font-medium leading-none", className)}
@@ -190,29 +199,31 @@ export function TypographySmall({
     </small>
   )
 }
+TypographyH1.displayName = "TypographySmall"
 
 interface TypographyLargeProps
   extends Omit<React.HTMLProps<HTMLDivElement>, "children"> {
   children: string
 }
 
-export function TypographyLarge({
+const TypographyLarge = ({
   children,
   className,
   ...otherProps
-}: TypographyLargeProps) {
+}: TypographyLargeProps) => {
   return (
     <div className={clsx("text-lg font-semibold", className)} {...otherProps}>
       {children}
     </div>
   )
 }
+TypographyH1.displayName = "TypographyLarge"
 
 interface TypographyListProps {
   list: string[]
 }
 
-export function TypographyList({ list }: TypographyListProps) {
+const TypographyList = ({ list }: TypographyListProps) => {
   return (
     <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
       {list.map((item) => (
@@ -220,4 +231,20 @@ export function TypographyList({ list }: TypographyListProps) {
       ))}
     </ul>
   )
+}
+TypographyH1.displayName = "TypographyList"
+
+export {
+  TypographyH1,
+  TypographyH2,
+  TypographyH3,
+  TypographyH4,
+  TypographyBlockquote,
+  TypographyInlineCode,
+  TypographyP,
+  TypographyLead,
+  TypographyMuted,
+  TypographySmall,
+  TypographyLarge,
+  TypographyList,
 }

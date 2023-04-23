@@ -1,33 +1,27 @@
 import React from "react"
 import {
-  useForm,
   FormProvider,
   SubmitHandler,
   FieldValues,
+  UseFormReturn,
 } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
 
 import { Field } from "./field"
 import { Submit } from "./submit"
 
-interface FormProps<Type>
+interface FormProps<Type extends FieldValues>
   extends Omit<React.FormHTMLAttributes<HTMLFormElement>, "onSubmit"> {
   onSubmit: SubmitHandler<Pick<Type, keyof Type>>
   children: React.ReactNode
-  schema: z.Schema<Type>
+  form: UseFormReturn<Type, unknown>
 }
 
-export function Form<Type extends FieldValues>({
+const Form = <Type extends FieldValues>({
   children,
+  form,
   onSubmit,
-  schema,
   ...otherProps
-}: FormProps<Type>) {
-  const form = useForm<Type>({
-    resolver: zodResolver(schema),
-  })
-
+}: FormProps<Type>) => {
   return (
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} {...otherProps}>
@@ -36,6 +30,9 @@ export function Form<Type extends FieldValues>({
     </FormProvider>
   )
 }
+Form.displayName = "Form"
 
 Form.Field = Field
 Form.Submit = Submit
+
+export { Form }

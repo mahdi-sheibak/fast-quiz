@@ -1,8 +1,8 @@
 import "@/styles/globals.scss"
 
 import { clsx } from "clsx"
-import { Analytics } from "@vercel/analytics/react"
 
+import { Analytics } from "@/components/analytics"
 import { iranSansExtraFont } from "@/lib/fonts"
 
 export const metadata = {

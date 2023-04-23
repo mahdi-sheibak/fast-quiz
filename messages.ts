@@ -26,4 +26,37 @@ export const messages = {
       title: "ورود دانشجو",
     },
   },
+  register: {
+    master: {
+      validation: {
+        fullName: {
+          min: "نام و نام خانوادگی اجباری است",
+        },
+        university: {
+          min: "نام دانشگاه اجباری است",
+        },
+        email: {
+          min: "ایمیل اجباری است",
+        },
+        password: {
+          min: "رمز عبور اجباری است",
+        },
+      },
+      fullName: {
+        label: "نام و نام خانوادگی",
+      },
+      university: {
+        label: "نام دانشگاه",
+      },
+      email: {
+        label: "ایمیل",
+      },
+      password: {
+        label: "رمز عبور",
+      },
+      submit: {
+        text: "ثبت نام",
+      },
+    },
+  },
 }
