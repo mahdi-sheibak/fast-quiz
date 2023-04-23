@@ -1,6 +1,12 @@
+import * as z from "zod"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+
+const masterSchema = z.object({
+  fullName: z.string().min(1, { message: "Full Name is required" }),
+})
 
 export default function RegisterMaster() {
   return (

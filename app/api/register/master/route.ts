@@ -11,7 +11,7 @@ const resolveSchemaError = (errors: z.ZodError) => {
   }))
 }
 
-export const masterSchema = z.object({
+const masterSchema = z.object({
   email: z.string({
     required_error: "Email is require",
   }),
