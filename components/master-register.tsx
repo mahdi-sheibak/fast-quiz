@@ -6,8 +6,8 @@ import { Form } from "@/components/form/form"
 import { masterSchema, Master } from "@/lib/schema"
 
 export function MasterRegisterForm() {
-  const onSubmit = useCallback((masterData: Master) => {
-    console.log("masterData::", masterData)
+  const onSubmit = useCallback((master: Master) => {
+    console.log("master::", master)
   }, [])
 
   return (
@@ -16,10 +16,10 @@ export function MasterRegisterForm() {
       onSubmit={onSubmit}
       schema={masterSchema}
     >
-      <Form.Field label="Full Name" name="fullName" />
-      <Form.Field label="University" name="university" />
-      <Form.Field label="Email" name="email" />
-      <Form.Field label="Password" name="password" />
+      <Form.Field label="نام و نام خانوادگی" name="fullName" />
+      <Form.Field label="دانشگاه" name="university" />
+      <Form.Field label="ایمیل" name="email" />
+      <Form.Field label="رمز عبور" name="password" />
       <Form.Submit className="w-1/2">ثبت نام</Form.Submit>
     </Form>
   )
