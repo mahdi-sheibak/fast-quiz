@@ -3,9 +3,6 @@
 import { useCallback } from "react"
 
 import { Form } from "@/components/form/form"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { TypographyMuted } from "@/components/ui/typography"
 import { useForm } from "@/hooks/useForm"
 import { masterSchema, Master } from "@/lib/schema"
 import { messages } from "@/messages"

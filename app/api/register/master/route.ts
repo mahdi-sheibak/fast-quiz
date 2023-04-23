@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server"
-import * as z from "zod"
+import { NextResponse, NextRequest } from "next/server"
+import { z } from "zod"
 
 import { db } from "@/lib/db"
-// import { masterSchema } from "@/lib/schema"
+import { masterSchema } from "@/lib/schema"
 
 const resolveSchemaError = (errors: z.ZodError) => {
   return errors.issues.map((issue) => ({
@@ -11,66 +11,44 @@ const resolveSchemaError = (errors: z.ZodError) => {
   }))
 }
 
-const masterSchema = z.object({
-  email: z.string({
-    required_error: "Email is require",
-  }),
-  fullName: z.string({
-    required_error: "FullName is require",
-  }),
-  password: z.string({
-    required_error: "Password is require",
-  }),
-  university: z.string({
-    required_error: "University is require",
-  }),
-  student: z.object({
-    id: z.string({
-      required_error: "Student id is require",
-    }),
-    title: z.string({
-      required_error: "Student Title is require",
-    }),
-  }),
-})
-
-export const GET = () => {
+export const GET = async () => {
   try {
-    const validateMaster = masterSchema.parse({
-      student: {
-        id: "student id",
-      },
-    })
-    console.log("validateMaster::", validateMaster)
-  } catch (e) {
+    const masters = await db.master.findMany()
     return NextResponse.json({
-      status: "GET Request with error",
-      errors: resolveSchemaError(e as z.ZodError),
+      status: "Masters",
+      masters,
+    })
+  } catch (error) {
+    return NextResponse.json({
+      status: "Error Masters",
+      error,
     })
   }
-
-  return NextResponse.json({
-    status: "GET Request",
-  })
 }
 
-export const POST = async () => {
-  // create a master
-  console.log("im going to create a master")
+export const POST = async (request: NextRequest) => {
+  let body = null
 
-  // const master = await db.master.create({
-  //   data: {
-  //     email: "email55555555@gmail.com",
-  //     fullName: "Mahdi Family",
-  //     password: "12345678",
-  //     university: "MIT",
-  //   },
-  // })
+  try {
+    body = await request.json()
+  } catch (e) {
+    body = null
+  }
 
-  // console.log("master::", master)
+  try {
+    const validateMaster = masterSchema.parse(body)
+    const master = await db.master.create({
+      data: validateMaster,
+    })
 
-  return NextResponse.json({
-    status: "success",
-    // master,
-  })
+    return NextResponse.json({
+      status: "success",
+      master,
+    })
+  } catch (e) {
+    return NextResponse.json({
+      status: "Error",
+      error: resolveSchemaError(e as z.ZodError),
+    })
+  }
 }
