@@ -16,13 +16,22 @@ const Field = ({ label, register, ...otherProps }: FieldProps) => {
   } = useFormContext()
 
   const name = register.name
+  const errorMessage = errors[name]?.message
 
   return (
     <div className="flex flex-col space-y-1.5">
       <Label htmlFor={name}>{label}:</Label>
-      <Input id={name} placeholder={label} {...register} {...otherProps} />
-      {errors[name]?.message && (
-        <TypographyMuted>{errors[name]?.message?.toString()}</TypographyMuted>
+      <Input
+        className={errorMessage ? "border-red-600" : ""}
+        id={name}
+        placeholder={label}
+        {...register}
+        {...otherProps}
+      />
+      {errorMessage && (
+        <TypographyMuted className="text-red-600">
+          {errorMessage?.toString()}
+        </TypographyMuted>
       )}
     </div>
   )
