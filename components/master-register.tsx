@@ -6,12 +6,16 @@ import { Form } from "@/components/form/form"
 import { useForm } from "@/hooks/useForm"
 import { masterSchema, Master } from "@/lib/schema"
 import { messages } from "@/messages"
+import { createMaster } from "@/services/master"
 
 const MasterRegisterForm = () => {
   const form = useForm<Master>(masterSchema)
 
-  const onSubmit = useCallback((master: Master) => {
+  const onSubmit = useCallback(async (master: Master) => {
+    const masterResponse = await createMaster(master)
+
     console.log("master::", master)
+    console.log("masterResponse::", masterResponse)
   }, [])
 
   return (
