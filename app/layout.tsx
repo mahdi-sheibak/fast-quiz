@@ -1,5 +1,5 @@
 import "@/styles/globals.scss"
-
+import React from "react"
 import { clsx } from "clsx"
 
 import { Analytics } from "@/components/analytics"

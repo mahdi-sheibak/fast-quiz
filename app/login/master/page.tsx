@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { useForm } from "react-hook-form"
 
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
@@ -11,7 +10,7 @@ import {
   CardTitle,
   CardFooter,
 } from "@/components/ui/card"
-import { TypographyP } from "@/components/ui/typography"
+import { TypographySmall } from "@/components/ui/typography"
 
 export default function LoginMaster() {
   return (
@@ -34,14 +33,14 @@ export default function LoginMaster() {
         </CardContent>
         <CardFooter className="flex flex-col">
           <Button className="w-full">ورود</Button>
-          <TypographyP>
+          <TypographySmall className="mt-7">
             <Link
               href="/register/master"
               className="hover:text-brand underline underline-offset-4"
             >
               حسابی ندارید؟ ثبت نام استاد
             </Link>
-          </TypographyP>
+          </TypographySmall>
         </CardFooter>
       </Card>
     </main>

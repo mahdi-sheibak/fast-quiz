@@ -182,7 +182,7 @@ TypographyH1.displayName = "TypographyMuted"
 
 interface TypographySmallProps
   extends Omit<React.HTMLProps<HTMLElement>, "children"> {
-  children: string
+  children: string | React.ReactNode
 }
 
 const TypographySmall = ({

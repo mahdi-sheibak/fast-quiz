@@ -10,7 +10,7 @@ import {
   CardTitle,
   CardFooter,
 } from "@/components/ui/card"
-import { TypographyP } from "@/components/ui/typography"
+import { TypographySmall } from "@/components/ui/typography"
 
 export default function LoginStudent() {
   return (
@@ -33,14 +33,14 @@ export default function LoginStudent() {
         </CardContent>
         <CardFooter className="flex flex-col">
           <Button className="w-full">ورود</Button>
-          <TypographyP>
+          <TypographySmall className="mt-7">
             <Link
               href="/register/master"
               className="hover:text-brand underline underline-offset-4"
             >
               حسابی ندارید؟ ثبت نام دانشجو
             </Link>
-          </TypographyP>
+          </TypographySmall>
         </CardFooter>
       </Card>
     </main>
