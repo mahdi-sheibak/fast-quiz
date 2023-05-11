@@ -1,25 +1,25 @@
-import "@/styles/globals.scss"
-import React from "react"
-import { clsx } from "clsx"
+import "@/styles/globals.scss";
+import React from "react";
+import { clsx } from "clsx";
 
-import { Analytics } from "@/components/analytics"
-import { iranSansExtraFont } from "@/lib/fonts"
-import { messages } from "@/messages"
+import { Analytics } from "@/components/analytics";
+import { iranSansExtraFont } from "@/lib/fonts";
+import { messages } from "@/messages";
 
 export const metadata = {
-  title: messages.home.title,
-  description: messages.home.desc,
-}
+	title: messages.home.title,
+	description: messages.home.desc,
+};
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" className={clsx("dark", iranSansExtraFont.className)}>
-      <body>{children}</body>
-      <Analytics />
-    </html>
-  )
+	return (
+		<html lang="en" className={clsx("dark", iranSansExtraFont.className)}>
+			<body>{children}</body>
+			<Analytics />
+		</html>
+	);
 }

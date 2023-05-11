@@ -1,22 +1,22 @@
-import { useFormContext } from "react-hook-form"
-import { Loader2 } from "lucide-react"
+import { useFormContext } from "react-hook-form";
+import { Loader2 } from "lucide-react";
 
-import { Button, ButtonProps } from "@/components/ui/button"
+import { Button, ButtonProps } from "@/components/ui/button";
 
-export interface SubmitProps extends ButtonProps {}
+export type SubmitProps = ButtonProps;
 
-const Submit = ({ children, ...otherProps }: SubmitProps) => {
-  const {
-    formState: { isSubmitting },
-  } = useFormContext()
+const Submit = ({ children, ...props }: SubmitProps) => {
+	const {
+		formState: { isSubmitting },
+	} = useFormContext();
 
-  return (
-    <Button {...otherProps} type="submit">
-      {isSubmitting && <Loader2 className="ml-2 h-4 w-4 infinite-rotate" />}
-      {children}
-    </Button>
-  )
-}
-Submit.displayName = "Submit"
+	return (
+		<Button {...props} type="submit">
+			{isSubmitting && <Loader2 className="ml-2 h-4 w-4 infinite-rotate" />}
+			{children}
+		</Button>
+	);
+};
+Submit.displayName = "Submit";
 
-export { Submit }
+export { Submit };

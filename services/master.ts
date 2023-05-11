@@ -1,15 +1,29 @@
-import ky from "ky"
+import * as z from "zod";
 
-import { Master } from "@/lib/schema"
+import { api } from "./api";
+import { messages } from "@/messages";
 
-const api = ky.extend({
-  prefixUrl: process.env.BASE_URL || "http://localhost:3000/api/",
-})
+export const masterSchema = z.object({
+	fullName: z
+		.string()
+		.min(1, { message: messages.register.master.validation.fullName.min }),
+	university: z
+		.string()
+		.min(1, { message: messages.register.master.validation.fullName.min }),
+	email: z
+		.string()
+		.min(1, { message: messages.register.master.validation.email.min }),
+	password: z
+		.string()
+		.min(1, { message: messages.register.master.validation.password.min }),
+});
+
+export type Master = z.infer<typeof masterSchema>;
 
 export const createMaster = (master: Master) => {
-  return api
-    .post("register/master", {
-      json: master,
-    })
-    .json()
-}
+	return api
+		.post("register/master", {
+			json: master,
+		})
+		.json();
+};
