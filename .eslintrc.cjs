@@ -13,6 +13,8 @@ const config = {
 		"plugin:react/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:react-hooks/recommended",
+		"prettier",
+		"plugin:tailwindcss/recommended",
 	],
 	parserOptions: {
 		ecmaVersion: "latest",
@@ -31,10 +33,22 @@ const config = {
 		react: {
 			version: "detect",
 		},
+		tailwindcss: {
+			callees: ["cn"],
+			config: "tailwind.config.cjs",
+		},
+		next: {
+			rootDir: ["apps/*/"],
+		},
 	},
+	// overrides: [
+	// 	{
+	// 		files: ["*.ts", "*.tsx"],
+	// 		parser: "@typescript-eslint/parser",
+	// 	},
+	// ],
 	rules: {
 		quotes: ["warn", "double"],
-		semi: ["warn", "always"],
 		eqeqeq: "warn",
 		"no-await-in-loop": "warn",
 		"no-else-return": "warn",
@@ -44,7 +58,10 @@ const config = {
 			2,
 			{ checksVoidReturn: { attributes: false } },
 		],
+		"tailwindcss/no-custom-classname": "off",
+		"tailwindcss/classnames-order": "error",
+		"@next/next/no-html-link-for-pages": "off",
 	},
-};
+}
 
-module.exports = config;
+module.exports = config

@@ -1,16 +1,16 @@
-import Link from "next/link";
-import { PenTool, GraduationCap } from "lucide-react";
+import Link from "next/link"
+import { messages } from "@/messages"
+import { GraduationCap, PenTool } from "lucide-react"
 
-import { Button } from "@/components/ui/button";
-import { TypographyH1, TypographyH4 } from "@/components/ui/typography";
-import { messages } from "@/messages";
+import { Button } from "@/components/ui/button"
+import { TypographyH1, TypographyH4 } from "@/components/ui/typography"
 
 export default function Home() {
 	return (
-		<main className="flex items-center justify-around h-screen">
+		<main className="flex h-screen items-center justify-around">
 			<div>
 				<TypographyH1>{messages.home.title}</TypographyH1>
-				<TypographyH4 className="mt-5 mb-5">{messages.home.desc}</TypographyH4>
+				<TypographyH4 className="my-5">{messages.home.desc}</TypographyH4>
 				<Link href="/login/master">
 					<Button>
 						<PenTool className="ml-2 h-4 w-4" />
@@ -26,5 +26,5 @@ export default function Home() {
 			</div>
 			<div className="hidden md:block">threejs cool effect</div>
 		</main>
-	);
+	)
 }

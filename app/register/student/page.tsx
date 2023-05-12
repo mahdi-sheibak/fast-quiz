@@ -1,3 +1,3 @@
 export default function RegisterStudent() {
-	return <div>Register Student</div>;
+	return <div>Register Student</div>
 }

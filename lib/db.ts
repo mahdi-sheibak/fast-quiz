@@ -1,5 +1,15 @@
-import { PrismaClient } from "@prisma/client";
+import { Master } from "@/services"
+import { Master as MasterDB, PrismaClient } from "@prisma/client"
 
-const prisma = new PrismaClient();
+export type { MasterDB }
 
-export const db = prisma;
+const prisma = new PrismaClient()
+
+export const db = prisma
+
+export const createMaster = async (master: Master) => {
+	"use server"
+	await db.master.create({
+		data: master,
+	})
+}

@@ -1,17 +1,22 @@
-"use client";
+"use client"
 
-import { Form } from "@/components/form/form";
-import { useForm } from "@/hooks/useForm";
-import { masterSchema, Master, createMaster } from "@/services/master";
-import { messages } from "@/messages";
+import { messages } from "@/messages"
+import { Master, masterSchema } from "@/services/master"
 
-const MasterRegisterForm = () => {
-	const form = useForm<Master>(masterSchema);
+import { useForm } from "@/hooks/useForm"
+import { Form } from "@/components/form/form"
+
+interface MasterRegisterFormProps {
+	onSubmit: (master: Master) => Promise<void>
+}
+
+const MasterRegisterForm = ({ onSubmit }: MasterRegisterFormProps) => {
+	const form = useForm<Master>(masterSchema)
 
 	return (
 		<Form<Master>
-			className="grid gap-4 md:w-1/2 w-full pr-3 pl-3 md:p-0"
-			onSubmit={createMaster}
+			className="grid w-full gap-4 px-3 md:w-1/2 md:p-0"
+			action={onSubmit}
 			form={form}>
 			<Form.Field
 				label={messages.register.master.fullName.label}
@@ -34,7 +39,7 @@ const MasterRegisterForm = () => {
 				{messages.register.master.submit.text}
 			</Form.Submit>
 		</Form>
-	);
-};
+	)
+}
 
-export { MasterRegisterForm };
+export { MasterRegisterForm }

@@ -1,13 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from "next/server"
 
-import { db } from "@/lib/db";
+import { db } from "@/lib/db"
 
 export const GET = async () => {
-	console.log("clean a data");
+	console.log("clean a data")
 
-	await db.master.deleteMany();
+	await db.master.deleteMany()
 
 	NextResponse.json({
 		message: "clean database",
-	});
-};
+	})
+}

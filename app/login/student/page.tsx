@@ -1,20 +1,20 @@
-import Link from "next/link";
+import Link from "next/link"
 
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button"
 import {
 	Card,
 	CardContent,
+	CardFooter,
 	CardHeader,
 	CardTitle,
-	CardFooter,
-} from "@/components/ui/card";
-import { TypographySmall } from "@/components/ui/typography";
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { TypographySmall } from "@/components/ui/typography"
 
 export default function LoginStudent() {
 	return (
-		<main className="flex items-center justify-around h-screen">
+		<main className="flex h-screen items-center justify-around">
 			<Card className="w-[350px] ">
 				<CardHeader>
 					<CardTitle className="text-center">ورود دانشجو</CardTitle>
@@ -43,5 +43,5 @@ export default function LoginStudent() {
 				</CardFooter>
 			</Card>
 		</main>
-	);
+	)
 }
