@@ -1,4 +1,4 @@
-import { createMaster } from "@/lib/db"
+import { createMasterAction } from "@/actions/master"
 import { MasterRegisterForm } from "@/components/master-register"
 
 export default function RegisterMaster() {
@@ -6,7 +6,7 @@ export default function RegisterMaster() {
 		<main className="flex">
 			<div className="grow">
 				<div className="relative flex h-screen flex-col items-center justify-center">
-					<MasterRegisterForm onSubmit={createMaster} />
+					<MasterRegisterForm onSubmit={createMasterAction} />
 				</div>
 			</div>
 			<div

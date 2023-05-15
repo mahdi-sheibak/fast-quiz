@@ -11,13 +11,13 @@ export default function Home() {
 			<div>
 				<TypographyH1>{messages.home.title}</TypographyH1>
 				<TypographyH4 className="my-5">{messages.home.desc}</TypographyH4>
-				<Link href="/login/master">
+				<Link href="/master/login">
 					<Button>
 						<PenTool className="ml-2 h-4 w-4" />
 						{messages.home.master.title}
 					</Button>
 				</Link>
-				<Link href="/login/student" className="mr-2 inline-block">
+				<Link href="/student/login" className="mr-2 inline-block">
 					<Button variant="secondary">
 						<GraduationCap className="ml-2 h-4 w-4" />
 						{messages.home.student.title}

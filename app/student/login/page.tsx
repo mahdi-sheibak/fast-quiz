@@ -35,7 +35,7 @@ export default function LoginStudent() {
 					<Button className="w-full">ورود</Button>
 					<TypographySmall className="mt-7">
 						<Link
-							href="/register/master"
+							href="/master/register"
 							className="hover:text-brand underline underline-offset-4">
 							حسابی ندارید؟ ثبت نام دانشجو
 						</Link>

@@ -24,6 +24,8 @@
 		"^@/types/(.*)$",
 		"^@/config/(.*)$",
 		"^@/lib/(.*)$",
+		"^@/actions/(.*)$",
+		"^@/services/(.*)$",
 		"^@/hooks/(.*)$",
 		"^@/components/ui/(.*)$",
 		"^@/components/(.*)$",

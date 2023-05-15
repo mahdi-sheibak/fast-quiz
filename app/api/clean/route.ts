@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 
 import { db } from "@/lib/db"
 
-export const GET = async () => {
+export const DELETE = async () => {
 	console.log("clean a data")
 
 	await db.master.deleteMany()

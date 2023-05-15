@@ -41,12 +41,6 @@ const config = {
 			rootDir: ["apps/*/"],
 		},
 	},
-	// overrides: [
-	// 	{
-	// 		files: ["*.ts", "*.tsx"],
-	// 		parser: "@typescript-eslint/parser",
-	// 	},
-	// ],
 	rules: {
 		quotes: ["warn", "double"],
 		eqeqeq: "warn",
@@ -54,6 +48,7 @@ const config = {
 		"no-else-return": "warn",
 		"@typescript-eslint/no-unsafe-assignment": "error",
 		"react/prop-types": "off",
+		"react/display-name": 1,
 		"@typescript-eslint/no-misused-promises": [
 			2,
 			{ checksVoidReturn: { attributes: false } },

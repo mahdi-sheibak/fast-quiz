@@ -6,9 +6,9 @@ const nextConfig = {
 		typedRoutes: true,
 		serverActions: true,
 	},
-	compiler: {
-		removeConsole: true,
-	},
+	// compiler: {
+	// 	removeConsole: true,
+	// },
 }
 
 module.exports = nextConfig
