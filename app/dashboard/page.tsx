@@ -1,3 +1,14 @@
+import { cookies } from "next/headers"
+import { redirect } from "next/navigation"
+
 export default function Dashboard() {
-	return <div className="bg-slate-100 text-start">dashboard</div>
+	const hasMaster = Boolean(cookies().get("master")?.value)
+
+	console.log("hasLogin::", JSON.stringify(cookies().get("master")))
+
+	hasMaster && redirect("/dashboard/master")
+
+	!hasMaster && redirect("/")
+
+	return <></>
 }

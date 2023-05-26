@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 import { Button } from "@/components/ui/button"
 import {
 	Card,
@@ -10,7 +8,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { TypographySmall } from "@/components/ui/typography"
+import { Link } from "@/components/ui/link"
 
 export default function LoginStudent() {
 	return (
@@ -33,13 +31,9 @@ export default function LoginStudent() {
 				</CardContent>
 				<CardFooter className="flex flex-col">
 					<Button className="w-full">ورود</Button>
-					<TypographySmall className="mt-7">
-						<Link
-							href="/master/register"
-							className="hover:text-brand underline underline-offset-4">
-							حسابی ندارید؟ ثبت نام دانشجو
-						</Link>
-					</TypographySmall>
+					<Link href="/master/register" className="mt-7" mute underline>
+						حسابی ندارید؟ ثبت نام دانشجو
+					</Link>
 				</CardFooter>
 			</Card>
 		</main>

@@ -17,7 +17,9 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en" className={clsx("dark", iranSansExtraFont.className)}>
+		<html
+			lang="en"
+			className={clsx("dark", iranSansExtraFont.className, "container")}>
 			<body>{children}</body>
 			<Analytics />
 		</html>

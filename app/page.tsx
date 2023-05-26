@@ -1,8 +1,8 @@
-import Link from "next/link"
 import { messages } from "@/messages"
 import { GraduationCap, PenTool } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { Link } from "@/components/ui/link"
 import { TypographyH1, TypographyH4 } from "@/components/ui/typography"
 
 export default function Home() {
