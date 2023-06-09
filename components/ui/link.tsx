@@ -1,6 +1,6 @@
 import type { Route } from "next"
 import NextLink, { LinkProps as NextLinkProps } from "next/link"
-import { VariantProps, cva } from "class-variance-authority"
+import { cva, VariantProps } from "class-variance-authority"
 import clsx from "clsx"
 
 import { cn } from "@/lib/utils"

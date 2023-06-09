@@ -1,9 +1,9 @@
-import { messages } from "@/messages"
 import { GraduationCap, PenTool } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 import { TypographyH1, TypographyH4 } from "@/components/ui/typography"
+import { messages } from "@/messages"
 
 export default function Home() {
 	return (

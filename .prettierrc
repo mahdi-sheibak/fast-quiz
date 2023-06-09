@@ -29,6 +29,7 @@
 		"^@/hooks/(.*)$",
 		"^@/components/ui/(.*)$",
 		"^@/components/(.*)$",
+		"^@/messages",
 		"^@/styles/(.*)$",
 		"^@/app/(.*)$",
 		"",

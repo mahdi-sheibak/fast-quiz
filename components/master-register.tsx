@@ -1,10 +1,9 @@
 "use client"
 
-import { messages } from "@/messages"
 import { Master, masterSchema } from "@/services/master"
-
 import { useForm } from "@/hooks/useForm"
 import { Form } from "@/components/form/form"
+import { messages } from "@/messages"
 
 interface MasterRegisterFormProps {
 	onSubmit: (master: Master) => Promise<void>

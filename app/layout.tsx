@@ -1,10 +1,12 @@
 import "@/styles/globals.scss"
+
 import React from "react"
-import { messages } from "@/messages"
 import { clsx } from "clsx"
 
 import { iranSansExtraFont } from "@/lib/fonts"
+import { Toaster } from "@/components/ui/toaster"
 import { Analytics } from "@/components/analytics"
+import { messages } from "@/messages"
 
 export const metadata = {
 	title: messages.home.title,
@@ -20,7 +22,10 @@ export default function RootLayout({
 		<html
 			lang="en"
 			className={clsx("dark", iranSansExtraFont.className, "container")}>
-			<body>{children}</body>
+			<body>
+				{children}
+				<Toaster />
+			</body>
 			<Analytics />
 		</html>
 	)

@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server"
-import { masterSchema } from "@/services/master"
 import { z } from "zod"
 
 import { db } from "@/lib/db"
+import { masterSchema } from "@/services/master"
 
 const resolveSchemaError = (errors: z.ZodError) => {
 	return errors.issues.map((issue) => ({

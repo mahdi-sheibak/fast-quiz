@@ -46,7 +46,6 @@ const config = {
 		eqeqeq: "warn",
 		"no-await-in-loop": "warn",
 		"no-else-return": "warn",
-		"@typescript-eslint/no-unsafe-assignment": "error",
 		"react/prop-types": "off",
 		"react/display-name": 1,
 		"@typescript-eslint/no-misused-promises": [
