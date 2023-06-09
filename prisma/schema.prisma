@@ -14,3 +14,21 @@ model Master {
   password   String
   university String
 }
+
+model QuestionOption {
+  id         String    @id @default(cuid())
+  text       String
+  Question   Question? @relation(fields: [questionId], references: [id])
+  questionId String?
+}
+
+model Question {
+  id        String           @id @default(cuid())
+  question  String
+  options   QuestionOption[]
+  // optionOne QuestionOption
+  // optionTwo   QuestionOption
+  // optionThree QuestionOption
+  // optionFour  QuestionOption
+  answereId String
+}
