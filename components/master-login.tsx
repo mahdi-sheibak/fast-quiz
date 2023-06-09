@@ -1,7 +1,7 @@
 "use client"
 
 import { User, userSchema } from "@/services/user"
-import { useForm } from "@/hooks/useForm"
+import { useForm } from "@/hooks/use-form"
 import {
 	Card,
 	CardContent,

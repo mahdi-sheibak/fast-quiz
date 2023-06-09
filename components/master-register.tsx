@@ -1,7 +1,7 @@
 "use client"
 
 import { Master, masterSchema } from "@/services/master"
-import { useForm } from "@/hooks/useForm"
+import { useForm } from "@/hooks/use-form"
 import { Form } from "@/components/form/form"
 import { messages } from "@/messages"
 

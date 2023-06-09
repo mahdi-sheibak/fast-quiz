@@ -14,8 +14,8 @@ interface Link {
 
 const links: Link[] = [
 	{
-		href: "/",
-		label: "شماره یک",
+		href: "/dashboard/master/create",
+		label: "ایجاد سوال",
 		icon: <PenTool className="ml-2 h-4 w-4" />,
 	},
 	{
@@ -36,6 +36,7 @@ const Sidebar = () => {
 					href={link.href}
 					variant={link.href === pathName ? "secondary" : "ghost"}
 					className="w-40">
+					{link.icon}
 					{link.label}
 				</LinkButton>
 			))}

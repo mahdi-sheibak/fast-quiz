@@ -1,26 +1,12 @@
 import { NextRequest, NextResponse } from "next/server"
-import { z } from "zod"
+import _ from "lodash"
 
 import { db } from "@/lib/db"
 import { masterSchema } from "@/services/master"
 
-const resolveSchemaError = (errors: z.ZodError) => {
-	return errors.issues.map((issue) => ({
-		felid: issue.path.join("."),
-		message: issue.message,
-	}))
-}
-
 export const POST = async (request: NextRequest) => {
-	let body = null
-
 	try {
-		body = await request.json()
-	} catch (e) {
-		body = null
-	}
-
-	try {
+		const body = await request.json()
 		const validateMaster = masterSchema.parse(body)
 		const master = await db.master.create({
 			data: validateMaster,
@@ -33,7 +19,7 @@ export const POST = async (request: NextRequest) => {
 	} catch (e) {
 		return NextResponse.json({
 			status: "Error",
-			error: resolveSchemaError(e as z.ZodError),
+			error: _.isEmpty(e) ? "body not found" : e,
 		})
 	}
 }

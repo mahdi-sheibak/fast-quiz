@@ -1,6 +1,10 @@
-import { Master as MasterDB, PrismaClient } from "@prisma/client"
+import {
+	Master as MasterDB,
+	PrismaClient,
+	Question as QuestionDB,
+} from "@prisma/client"
 
-export type { MasterDB }
+export type { MasterDB, QuestionDB }
 
 const prisma = new PrismaClient()
 
