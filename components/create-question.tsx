@@ -13,18 +13,19 @@ export function CreateQuestionForm({ action }: CreateQuestionFormProps) {
 	const form = useForm(questionSchema)
 
 	return (
-		<Form<Question> form={form} action={action} className="w-full">
-			<Form.Field
-				register={form.register("text")}
-				label="متن سوال"
-				className="w-1/2"
-			/>
-			<div>
-				<Form.Field register={form.register("option1")} label="گزینه یک" />
+		<Form<Question> form={form} action={action} className="w-full ">
+			<div className="mb-3 flex flex-col gap-3">
+				<Form.Field register={form.register("text")} label="متن سوال" />
+				<Form.Field
+					register={form.register("option1")}
+					label="گزینه یک - جواب درست"
+					className="border-green-600"
+				/>
 				<Form.Field register={form.register("option2")} label="گزینه دو" />
 				<Form.Field register={form.register("option3")} label="گزینه سه" />
 				<Form.Field register={form.register("option4")} label="گزینه چهار" />
 			</div>
+			<Form.Submit>ایجاد سوال</Form.Submit>
 		</Form>
 	)
 }

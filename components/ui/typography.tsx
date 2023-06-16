@@ -207,13 +207,16 @@ TypographyH1.displayName = "TypographyLarge"
 
 interface TypographyListProps {
 	list: string[]
+	itemClassName?: string
 }
 
-const TypographyList = ({ list }: TypographyListProps) => {
+const TypographyList = ({ list, itemClassName }: TypographyListProps) => {
 	return (
 		<ul className="my-6 ml-6 list-disc [&>li]:mt-2">
 			{list.map((item) => (
-				<li key={item}>{item}</li>
+				<li key={item} className={itemClassName}>
+					{item}
+				</li>
 			))}
 		</ul>
 	)

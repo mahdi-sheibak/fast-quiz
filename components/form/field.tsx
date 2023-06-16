@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import { useFormContext, UseFormRegisterReturn } from "react-hook-form"
 
 import { Input, InputProps } from "@/components/ui/input"
@@ -10,7 +11,7 @@ export interface FieldProps extends InputProps {
 	register: UseFormRegisterReturn
 }
 
-const Field = ({ label, register, type, ...props }: FieldProps) => {
+const Field = ({ label, register, type, className, ...props }: FieldProps) => {
 	const {
 		formState: { errors },
 	} = useFormContext()
@@ -22,7 +23,9 @@ const Field = ({ label, register, type, ...props }: FieldProps) => {
 		<div className="flex flex-col space-y-1.5">
 			<Label htmlFor={name}>{label}:</Label>
 			<Input
-				className={errorMessage ? "border-red-600" : ""}
+				className={clsx(className, {
+					"border-red-600": errorMessage,
+				})}
 				id={name}
 				type={type}
 				placeholder={label}

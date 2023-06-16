@@ -21,11 +21,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={clsx(
-				// "dark",
-				iranSansExtraFont.className,
-				"container"
-			)}>
+			className={clsx("dark", iranSansExtraFont.className, "container")}>
 			<body>
 				{children}
 				<Toaster />

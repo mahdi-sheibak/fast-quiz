@@ -1,20 +1,20 @@
 {
-  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-  "version": "0.2",
-  "language": "en,fa",
-  "dictionaryDefinitions": [
-    {
-      "name": "fast-quiz-en",
-      "path": "./cspell/fast-quiz.en.txt",
-      "addWords": true
-    },
-    {
-      "name": "fast-quiz-fa",
-      "path": "./cspell/fast-quiz.fa.txt",
-      "addWords": true
-    }
-  ],
-  "dictionaries": ["fast-quiz-en", "fast-quiz-fa"],
-  "ignorePaths": ["node_modules", ".turbo", ".next", "pnpm-lock.yaml"],
-  "import": ["@cspell/dict-fa-ir/cspell-ext.json"]
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+	"version": "0.2",
+	"language": "en,fa",
+	"dictionaryDefinitions": [
+		{
+			"name": "fast-quiz-en",
+			"path": "./cspell/fast-quiz.en.txt",
+			"addWords": true
+		},
+		{
+			"name": "fast-quiz-fa",
+			"path": "./cspell/fast-quiz.fa.txt",
+			"addWords": true
+		}
+	],
+	"dictionaries": ["fast-quiz-en", "fast-quiz-fa"],
+	"ignorePaths": ["node_modules", ".turbo", ".next", "pnpm-lock.yaml"],
+	"import": ["@cspell/dict-fa-ir/cspell-ext.json"]
 }

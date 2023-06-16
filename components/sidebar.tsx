@@ -19,8 +19,8 @@ const links: Link[] = [
 		icon: <PenTool className="ml-2 h-4 w-4" />,
 	},
 	{
-		href: "/dashboard/master",
-		label: "شماره دو",
+		href: "/dashboard/master/questions",
+		label: "لیست سوالات",
 		icon: <PenTool className="ml-2 h-4 w-4" />,
 	},
 ]
