@@ -1,9 +1,8 @@
-import { VariantProps } from "class-variance-authority"
+import { VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
-
-import { buttonVariants } from "./button"
-import { Link, LinkProps } from "./link"
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./button";
+import { Link, LinkProps } from "./link";
 
 export interface LinkButtonProps
 	extends VariantProps<typeof buttonVariants>,
@@ -20,8 +19,8 @@ const LinkButton = ({
 			className={cn(buttonVariants({ variant, size, className }))}
 			{...props}
 		/>
-	)
-}
-LinkButton.displayName = "LinkButton"
+	);
+};
+LinkButton.displayName = "LinkButton";
 
-export { LinkButton }
+export { LinkButton };

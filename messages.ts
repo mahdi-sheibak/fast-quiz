@@ -2,7 +2,7 @@ export const errorMessages = {
 	INTERNAL_SERVER: "خطا در ارتباط با سرور. لطفا دوباره تلاش کنید.",
 	INVALID_CREDENTIALS: "متاسفانه، کاربری با اطلاعات وارد شده یافت نشد.",
 	UNKNOWN_ERROR: "متاسفانه خطایی رخ داده است",
-}
+};
 
 export const messages = {
 	validation: {
@@ -59,4 +59,17 @@ export const messages = {
 			},
 		},
 	},
-}
+};
+
+export const universities = [
+	{ label: "دانشگاه چمران گرگان", value: 1 },
+	{ label: "دانشگاه شمسی پور تهران", value: 2 },
+	{ label: "دانشگاه صنعتی شریف", value: 3 },
+	{ label: "دانشگاه علم و صنعت ایران", value: 4 },
+	{ label: "دانشگاه امیرکبیر", value: 5 },
+	{ label: "دانشگاه تربیت مدرس", value: 6 },
+	{ label: "دانشگاه شهید بهشتی", value: 7 },
+	{ label: "دانشگاه علامه طباطبایی", value: 8 },
+	{ label: "دانشگاه خوارزمی", value: 9 },
+	{ label: "دانشگاه صنعتی خواجه نصیر الدین طوسی", value: 10 },
+];

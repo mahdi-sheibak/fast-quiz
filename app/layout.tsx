@@ -1,23 +1,19 @@
-import "@/styles/globals.scss"
+import { ReactNode } from "react";
+import { clsx } from "clsx";
 
-import React from "react"
-import { clsx } from "clsx"
+import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@/components/analytics";
+import { iranSansExtraFont } from "@/lib/fonts";
+import { messages } from "@/messages";
 
-import { iranSansExtraFont } from "@/lib/fonts"
-import { Toaster } from "@/components/ui/toaster"
-import { Analytics } from "@/components/analytics"
-import { messages } from "@/messages"
+import "@/styles/globals.scss";
 
 export const metadata = {
 	title: messages.home.title,
 	description: messages.home.desc,
-}
+};
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html
 			lang="en"
@@ -28,5 +24,5 @@ export default function RootLayout({
 			</body>
 			<Analytics />
 		</html>
-	)
+	);
 }

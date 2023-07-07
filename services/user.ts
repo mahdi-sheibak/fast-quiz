@@ -1,6 +1,6 @@
-import { z } from "zod"
+import { z } from "zod";
 
-import { messages } from "@/messages"
+import { messages } from "@/messages";
 
 export const userSchema = z.object({
 	email: z
@@ -10,6 +10,6 @@ export const userSchema = z.object({
 	password: z
 		.string()
 		.min(1, { message: messages.register.master.validation.password.min }),
-})
+});
 
-export type User = z.infer<typeof userSchema>
+export type User = z.infer<typeof userSchema>;

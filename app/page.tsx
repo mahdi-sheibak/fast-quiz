@@ -1,9 +1,9 @@
-import { GraduationCap, PenTool } from "lucide-react"
+import { GraduationCap, PenTool } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Link } from "@/components/ui/link"
-import { TypographyH1, TypographyH4 } from "@/components/ui/typography"
-import { messages } from "@/messages"
+import { Button } from "@/components/ui/button";
+import { Link } from "@/components/ui/link";
+import { TypographyH1, TypographyH4 } from "@/components/ui/typography";
+import { messages } from "@/messages";
 
 export default function Home() {
 	return (
@@ -26,5 +26,5 @@ export default function Home() {
 			</div>
 			<div className="hidden md:block">threejs cool effect</div>
 		</main>
-	)
+	);
 }

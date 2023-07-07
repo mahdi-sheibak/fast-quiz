@@ -1,14 +1,14 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
 	Card,
 	CardContent,
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Link } from "@/components/ui/link"
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Link } from "@/components/ui/link";
 
 export default function LoginStudent() {
 	return (
@@ -37,5 +37,5 @@ export default function LoginStudent() {
 				</CardFooter>
 			</Card>
 		</main>
-	)
+	);
 }

@@ -1,5 +1,5 @@
-import { createMasterAction } from "@/actions/master"
-import { MasterRegisterForm } from "@/components/master-register"
+import { MasterRegisterForm } from "@/components/master-register";
+import { createMasterAction } from "@/actions/master";
 
 export default function RegisterMaster() {
 	return (
@@ -15,5 +15,5 @@ export default function RegisterMaster() {
 				some threejs effect or any thing to do
 			</div>
 		</main>
-	)
+	);
 }

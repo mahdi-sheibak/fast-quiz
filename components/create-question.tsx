@@ -1,16 +1,15 @@
-"use client"
+"use client";
 
-import { Question, questionSchema } from "@/services/question"
-import { useForm } from "@/hooks/use-form"
-
-import { Form } from "./form/form"
+import { Form } from "@/components/form/form";
+import { useForm } from "@/hooks/use-form";
+import { Question, questionSchema } from "@/services/question";
 
 interface CreateQuestionFormProps {
-	action: (question: Question) => Promise<void>
+	action: (question: Question) => Promise<void>;
 }
 
 export function CreateQuestionForm({ action }: CreateQuestionFormProps) {
-	const form = useForm(questionSchema)
+	const form = useForm(questionSchema);
 
 	return (
 		<Form<Question> form={form} action={action} className="w-full ">
@@ -27,5 +26,5 @@ export function CreateQuestionForm({ action }: CreateQuestionFormProps) {
 			</div>
 			<Form.Submit>ایجاد سوال</Form.Submit>
 		</Form>
-	)
+	);
 }

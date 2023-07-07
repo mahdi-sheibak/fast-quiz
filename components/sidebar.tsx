@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import React from "react"
-import { usePathname } from "next/navigation"
-import { PenTool } from "lucide-react"
+import React from "react";
+import { usePathname } from "next/navigation";
+import { PenTool } from "lucide-react";
 
-import { LinkButton, LinkButtonProps } from "@/components/ui/link-button"
+import { LinkButton, LinkButtonProps } from "@/components/ui/link-button";
 
 interface Link {
-	href: LinkButtonProps["href"]
-	label: string
-	icon: React.ReactNode
+	href: LinkButtonProps["href"];
+	label: string;
+	icon: React.ReactNode;
 }
 
 const links: Link[] = [
@@ -23,10 +23,10 @@ const links: Link[] = [
 		label: "لیست سوالات",
 		icon: <PenTool className="ml-2 h-4 w-4" />,
 	},
-]
+];
 
 const Sidebar = () => {
-	const pathName = usePathname()
+	const pathName = usePathname();
 
 	return (
 		<div className="flex flex-col gap-4 p-5">
@@ -41,7 +41,7 @@ const Sidebar = () => {
 				</LinkButton>
 			))}
 		</div>
-	)
-}
+	);
+};
 
-export { Sidebar }
+export { Sidebar };

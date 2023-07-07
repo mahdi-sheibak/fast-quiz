@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { Master, masterSchema } from "@/services/master"
-import { useForm } from "@/hooks/use-form"
-import { Form } from "@/components/form/form"
-import { messages } from "@/messages"
+import { Form } from "@/components/form/form";
+import { useForm } from "@/hooks/use-form";
+import { Master, masterSchema } from "@/services/master";
+import { messages } from "@/messages";
 
 interface MasterRegisterFormProps {
-	onSubmit: (master: Master) => Promise<void>
+	onSubmit: (master: Master) => Promise<void>;
 }
 
 const MasterRegisterForm = ({ onSubmit }: MasterRegisterFormProps) => {
-	const form = useForm<Master>(masterSchema)
+	const form = useForm<Master>(masterSchema);
 
 	return (
 		<Form<Master>
@@ -38,7 +38,7 @@ const MasterRegisterForm = ({ onSubmit }: MasterRegisterFormProps) => {
 				{messages.register.master.submit.text}
 			</Form.Submit>
 		</Form>
-	)
-}
+	);
+};
 
-export { MasterRegisterForm }
+export { MasterRegisterForm };

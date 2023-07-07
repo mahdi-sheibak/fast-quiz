@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import { User, userSchema } from "@/services/user"
-import { useForm } from "@/hooks/use-form"
 import {
 	Card,
 	CardContent,
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@/components/ui/card"
-import { Link } from "@/components/ui/link"
-import { useToast } from "@/components/ui/use-toast"
-import { Form } from "@/components/form/form"
-import { messages } from "@/messages"
+} from "@/components/ui/card";
+import { Link } from "@/components/ui/link";
+import { useToast } from "@/components/ui/use-toast";
+import { Form } from "@/components/form/form";
+import { useForm } from "@/hooks/use-form";
+import { messages } from "@/messages";
+import { User, userSchema } from "@/services/user";
 
 interface MasterLoginFormProps {
-	onSubmit: (user: User) => Promise<string>
+	onSubmit: (user: User) => Promise<string>;
 }
 
 const MasterLoginForm = ({ onSubmit }: MasterLoginFormProps) => {
-	const form = useForm<User>(userSchema)
+	const form = useForm<User>(userSchema);
 
-	const { toast } = useToast()
+	const { toast } = useToast();
 
 	const onAction = async (userData: User) => {
-		const failMessage = await onSubmit(userData)
-		if (!failMessage) return
+		const failMessage = await onSubmit(userData);
+		if (!failMessage) return;
 
 		toast({
 			description: failMessage,
 			variant: "destructive",
-		})
-	}
+		});
+	};
 
 	return (
 		<Card className="w-[350px]">
@@ -61,7 +61,7 @@ const MasterLoginForm = ({ onSubmit }: MasterLoginFormProps) => {
 				</CardFooter>
 			</Form>
 		</Card>
-	)
-}
+	);
+};
 
-export { MasterLoginForm }
+export { MasterLoginForm };

@@ -1,23 +1,22 @@
-import clsx from "clsx"
-import { useFormContext, UseFormRegisterReturn } from "react-hook-form"
+import { UseFormRegisterReturn, useFormContext } from "react-hook-form";
+import clsx from "clsx";
 
-import { Input, InputProps } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-
-import { TypographyMuted } from "../ui/typography"
+import { Label } from "@/components/ui/label";
+import { Input, InputProps } from "@/components/ui/input";
+import { TypographyMuted } from "@/components/ui/typography";
 
 export interface FieldProps extends InputProps {
-	label: string
-	register: UseFormRegisterReturn
+	label: string;
+	register: UseFormRegisterReturn;
 }
 
 const Field = ({ label, register, type, className, ...props }: FieldProps) => {
 	const {
 		formState: { errors },
-	} = useFormContext()
+	} = useFormContext();
 
-	const name = register.name
-	const errorMessage = errors[name]?.message?.toString()
+	const name = register.name;
+	const errorMessage = errors[name]?.message?.toString();
 
 	return (
 		<div className="flex flex-col space-y-1.5">
@@ -38,8 +37,8 @@ const Field = ({ label, register, type, className, ...props }: FieldProps) => {
 				</TypographyMuted>
 			)}
 		</div>
-	)
-}
-Field.displayName = "Field"
+	);
+};
+Field.displayName = "Field";
 
-export { Field }
+export { Field };

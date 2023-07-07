@@ -1,8 +1,7 @@
-import * as z from "zod"
+import * as z from "zod";
 
-import { messages } from "@/messages"
-
-import { api } from "./api"
+import { messages } from "@/messages";
+import { api } from "./api";
 
 export const masterSchema = z.object({
 	fullName: z
@@ -18,14 +17,14 @@ export const masterSchema = z.object({
 	password: z
 		.string()
 		.min(1, { message: messages.register.master.validation.password.min }),
-})
+});
 
-export type Master = z.infer<typeof masterSchema>
+export type Master = z.infer<typeof masterSchema>;
 
 export const createMaster = (master: Master) => {
 	return api
 		.post("register/master", {
 			json: master,
 		})
-		.json()
-}
+		.json();
+};

@@ -1,12 +1,11 @@
-"use server"
+"use server";
 
-import { Master } from "@/services"
-
-import { db } from "@/lib/db"
+import { db } from "@/lib/db";
+import { Master } from "@/services";
 
 export const createMasterAction = async (masterData: Master) => {
-	"use server"
+	"use server";
 	await db.master.create({
 		data: masterData,
-	})
-}
+	});
+};

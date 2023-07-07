@@ -1,17 +1,14 @@
-import { cookies } from "next/headers"
-import { Master } from "@/services"
-import { LogOutIcon } from "lucide-react"
+import { cookies } from "next/headers";
 
-import { Button } from "@/components/ui/button"
-import { TypographyH2 } from "@/components/ui/typography"
-import { Sidebar } from "@/components/sidebar"
+import { TypographyH2 } from "@/components/ui/typography";
+import { Sidebar } from "@/components/sidebar";
+import { LogoutButton } from "@/components/misc/logout-button";
+import { logout } from "@/actions/logout";
 
 export default function layout({ children }: { children: React.ReactNode }) {
-	const master = cookies().get("master")?.value
+	const cookieStore = cookies();
 
-	const masterObject = master
-		? (JSON.parse(master) as Master)
-		: { fullName: "No Login" }
+	const fullName = cookieStore.get("fullName")?.value ?? "No Login";
 
 	return (
 		<div className="flex gap-3">
@@ -22,14 +19,11 @@ export default function layout({ children }: { children: React.ReactNode }) {
 				<nav className="my-10 flex items-center justify-between">
 					<TypographyH2>داشبورد استاد</TypographyH2>
 					<div className="flex items-center">
-						<Button variant="ghost">
-							<LogOutIcon />
-							<span className="mr-2">{masterObject.fullName}</span>
-						</Button>
+						<LogoutButton title={fullName} action={logout} />
 					</div>
 				</nav>
 				<section className="w-full">{children}</section>
 			</section>
 		</div>
-	)
+	);
 }

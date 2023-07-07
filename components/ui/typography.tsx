@@ -1,86 +1,103 @@
-import React from "react"
-import { clsx } from "clsx"
+import React from "react";
+import { clsx } from "clsx";
 
 interface TypographyHeadingProps
 	extends Omit<React.HTMLProps<HTMLHeadingElement>, "children"> {
-	children: string
+	children: string;
+	underline?: boolean;
 }
 
 const TypographyH1 = ({
 	children,
 	className,
+	underline,
 	...props
 }: TypographyHeadingProps) => {
 	return (
 		<h1
 			className={clsx(
 				"scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
-				className
+				className,
+				{
+					"border-b": underline,
+				}
 			)}
 			{...props}>
 			{children}
 		</h1>
-	)
-}
-TypographyH1.displayName = "TypographyH1"
+	);
+};
+TypographyH1.displayName = "TypographyH1";
 
 const TypographyH2 = ({
 	children,
 	className,
+	underline,
 	...props
 }: TypographyHeadingProps) => {
 	return (
 		<h2
 			className={clsx(
-				"scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0",
-				className
+				"scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0",
+				className,
+				{
+					"border-b": underline,
+				}
 			)}
 			{...props}>
 			{children}
 		</h2>
-	)
-}
-TypographyH1.displayName = "TypographyH2"
+	);
+};
+TypographyH1.displayName = "TypographyH2";
 
 const TypographyH3 = ({
 	children,
 	className,
+	underline,
 	...props
 }: TypographyHeadingProps) => {
 	return (
 		<h3
 			className={clsx(
 				"scroll-m-20 text-2xl font-semibold tracking-tight",
-				className
+				className,
+				{
+					"border-b": underline,
+				}
 			)}
 			{...props}>
 			{children}
 		</h3>
-	)
-}
-TypographyH1.displayName = "TypographyH3"
+	);
+};
+TypographyH1.displayName = "TypographyH3";
 
 const TypographyH4 = ({
 	children,
 	className,
+	underline,
 	...props
 }: TypographyHeadingProps) => {
 	return (
 		<h4
 			className={clsx(
 				"scroll-m-20 text-xl font-semibold tracking-tight",
-				className
+				className,
+				{
+					"border-b": underline,
+				}
 			)}
 			{...props}>
 			{children}
 		</h4>
-	)
-}
-TypographyH1.displayName = "TypographyH4"
+	);
+};
+TypographyH1.displayName = "TypographyH4";
 
 interface TypographyQuoteProps
 	extends Omit<React.HTMLProps<HTMLQuoteElement>, "children"> {
-	children: string
+	children: string;
 }
 
 const TypographyBlockquote = ({
@@ -94,13 +111,13 @@ const TypographyBlockquote = ({
 			{...props}>
 			{children}
 		</blockquote>
-	)
-}
-TypographyH1.displayName = "TypographyBlockquote"
+	);
+};
+TypographyH1.displayName = "TypographyBlockquote";
 
 interface TypographyInlineCodeProps
 	extends Omit<React.HTMLProps<HTMLElement>, "children"> {
-	children: string
+	children: string;
 }
 
 const TypographyInlineCode = ({
@@ -117,13 +134,13 @@ const TypographyInlineCode = ({
 			{...props}>
 			{children}
 		</code>
-	)
-}
-TypographyH1.displayName = "TypographyInlineCode"
+	);
+};
+TypographyH1.displayName = "TypographyInlineCode";
 
 interface TypographyParagraphProps
 	extends Omit<React.HTMLProps<HTMLParagraphElement>, "children"> {
-	children: string | React.ReactNode
+	children: string | React.ReactNode;
 }
 
 const TypographyP = ({
@@ -137,9 +154,9 @@ const TypographyP = ({
 			{...props}>
 			{children}
 		</p>
-	)
-}
-TypographyH1.displayName = "TypographyP"
+	);
+};
+TypographyH1.displayName = "TypographyP";
 
 const TypographyLead = ({
 	children,
@@ -150,9 +167,9 @@ const TypographyLead = ({
 		<p className={clsx("text-xl text-muted-foreground", className)} {...props}>
 			{children}
 		</p>
-	)
-}
-TypographyH1.displayName = "TypographyLead"
+	);
+};
+TypographyH1.displayName = "TypographyLead";
 
 const TypographyMuted = ({
 	children,
@@ -163,13 +180,13 @@ const TypographyMuted = ({
 		<p className={clsx("text-sm text-muted-foreground", className)} {...props}>
 			{children}
 		</p>
-	)
-}
-TypographyH1.displayName = "TypographyMuted"
+	);
+};
+TypographyH1.displayName = "TypographyMuted";
 
 interface TypographySmallProps
 	extends Omit<React.HTMLProps<HTMLElement>, "children"> {
-	children: string | React.ReactNode
+	children: string | React.ReactNode;
 }
 
 const TypographySmall = ({
@@ -183,13 +200,13 @@ const TypographySmall = ({
 			{...props}>
 			{children}
 		</small>
-	)
-}
-TypographyH1.displayName = "TypographySmall"
+	);
+};
+TypographyH1.displayName = "TypographySmall";
 
 interface TypographyLargeProps
 	extends Omit<React.HTMLProps<HTMLDivElement>, "children"> {
-	children: string
+	children: string;
 }
 
 const TypographyLarge = ({
@@ -201,13 +218,13 @@ const TypographyLarge = ({
 		<div className={clsx("text-lg font-semibold", className)} {...props}>
 			{children}
 		</div>
-	)
-}
-TypographyH1.displayName = "TypographyLarge"
+	);
+};
+TypographyH1.displayName = "TypographyLarge";
 
 interface TypographyListProps {
-	list: string[]
-	itemClassName?: string
+	list: string[];
+	itemClassName?: string;
 }
 
 const TypographyList = ({ list, itemClassName }: TypographyListProps) => {
@@ -219,9 +236,9 @@ const TypographyList = ({ list, itemClassName }: TypographyListProps) => {
 				</li>
 			))}
 		</ul>
-	)
-}
-TypographyH1.displayName = "TypographyList"
+	);
+};
+TypographyH1.displayName = "TypographyList";
 
 export {
 	TypographyH1,
@@ -236,4 +253,4 @@ export {
 	TypographySmall,
 	TypographyLarge,
 	TypographyList,
-}
+};

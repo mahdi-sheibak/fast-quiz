@@ -1,9 +1,9 @@
-import type { Route } from "next"
-import NextLink, { LinkProps as NextLinkProps } from "next/link"
-import { cva, VariantProps } from "class-variance-authority"
-import clsx from "clsx"
+import { ReactNode } from "react";
+import NextLink, { LinkProps as NextLinkProps } from "next/link";
+import { VariantProps, cva } from "class-variance-authority";
+import clsx from "clsx";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const linkVariants = cva([""], {
 	variants: {
@@ -14,13 +14,15 @@ const linkVariants = cva([""], {
 	defaultVariants: {
 		fontSize: "small",
 	},
-})
+});
 
 export interface LinkProps
-	extends NextLinkProps<Route>,
+	extends NextLinkProps,
 		VariantProps<typeof linkVariants> {
-	mute?: boolean
-	underline?: boolean
+	mute?: boolean;
+	underline?: boolean;
+	children: ReactNode;
+	className?: string;
 }
 
 const Link = ({
@@ -40,8 +42,8 @@ const Link = ({
 			{...props}>
 			{children}
 		</NextLink>
-	)
-}
-Link.displayName = "Link"
+	);
+};
+Link.displayName = "Link";
 
-export { Link }
+export { Link };

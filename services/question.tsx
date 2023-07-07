@@ -1,4 +1,4 @@
-import * as z from "zod"
+import { z } from "zod";
 
 export const questionSchema = z.object({
 	text: z.string().min(1),
@@ -6,6 +6,6 @@ export const questionSchema = z.object({
 	option2: z.string().min(1),
 	option3: z.string().min(1),
 	option4: z.string().min(1),
-})
+});
 
-export type Question = z.infer<typeof questionSchema>
+export type Question = z.infer<typeof questionSchema>;
