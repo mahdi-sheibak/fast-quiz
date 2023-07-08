@@ -2,7 +2,6 @@
 
 import { LogOutIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { IconButton } from "@/components/ui/icon-button";
 import { useActionLoader } from "@/hooks/use-action-loader";
 
