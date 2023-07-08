@@ -21,10 +21,11 @@ const MasterRegisterForm = ({ onSubmit }: MasterRegisterFormProps) => {
 				label={messages.register.master.fullName.label}
 				register={form.register("fullName")}
 			/>
-			<Form.Field
+			{/* <Form.Field
 				label={messages.register.master.university.label}
 				register={form.register("university")}
-			/>
+			/> */}
+			<Form.SelectField />
 			<Form.Field
 				label={messages.register.master.email.label}
 				register={form.register("email")}

@@ -7,6 +7,7 @@ import {
 } from "react-hook-form";
 
 import { Field } from "./field";
+import { SelectField } from "./select";
 import { Submit } from "./submit";
 
 type FormSubmitAction<Type extends FieldValues> =
@@ -44,5 +45,6 @@ Form.displayName = "Form";
 
 Form.Field = Field;
 Form.Submit = Submit;
+Form.SelectField = SelectField;
 
 export { Form };
