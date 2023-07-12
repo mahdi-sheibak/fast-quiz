@@ -17,6 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html
 			lang="en"
+			dir="rtl"
 			className={clsx("dark", iranSansExtraFont.className, "container")}>
 			<body>
 				{children}

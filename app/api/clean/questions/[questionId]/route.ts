@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
 
-export const GET = async (
+export const DELETE = async (
 	_request: NextRequest,
 	{ params }: { params: { questionId: string } }
 ) => {

@@ -3,7 +3,7 @@
 import { Form } from "@/components/form/form";
 import { useForm } from "@/hooks/use-form";
 import { Master, masterSchema } from "@/services/master";
-import { messages } from "@/messages";
+import { messages, universities } from "@/messages";
 
 interface MasterRegisterFormProps {
 	onSubmit: (master: Master) => Promise<void>;
@@ -21,11 +21,11 @@ const MasterRegisterForm = ({ onSubmit }: MasterRegisterFormProps) => {
 				label={messages.register.master.fullName.label}
 				register={form.register("fullName")}
 			/>
-			{/* <Form.Field
+			<Form.SelectField
 				label={messages.register.master.university.label}
+				options={universities}
 				register={form.register("university")}
-			/> */}
-			<Form.SelectField />
+			/>
 			<Form.Field
 				label={messages.register.master.email.label}
 				register={form.register("email")}

@@ -9,7 +9,13 @@ export const DELETE = async () => {
 	await db.question.deleteMany();
 	await db.option.deleteMany();
 
-	NextResponse.json({
+	return NextResponse.json({
 		message: "clean database",
+	});
+};
+
+export const GET = () => {
+	return NextResponse.json({
+		message: "this api doe's not exist",
 	});
 };

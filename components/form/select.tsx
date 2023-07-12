@@ -1,40 +1,69 @@
+import { UseFormRegisterReturn, useFormContext } from "react-hook-form";
+import clsx from "clsx";
+
 import { Label } from "@/components/ui/label";
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
-	SelectGroup,
-	SelectLabel,
 	SelectValue,
-	SelectSeparator,
 } from "@/components/ui/select";
-import { universities } from "@/messages";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { TypographyMuted } from "@/components/ui/typography";
 
-export const SelectField = () => {
+interface Option {
+	label: string;
+	value: string;
+}
+
+interface Props {
+	options: Option[];
+	register: UseFormRegisterReturn;
+	label: string;
+}
+
+export const SelectField = ({ options, register, label }: Props) => {
+	const {
+		formState: { errors },
+		setValue,
+		trigger,
+	} = useFormContext();
+
+	const name = register.name;
+	const errorMessage = errors[name]?.message?.toString();
+
 	return (
 		<div className="flex flex-col space-y-1.5">
-			<Label>{"دانشگاه"}:</Label>
-			<Select>
-				<SelectTrigger style={{ direction: "rtl" }}>
-					<SelectValue placeholder="دانشگاه" />
+			<Label>{label}:</Label>
+			<Select
+				onValueChange={async (newOptionValue) => {
+					setValue(name, newOptionValue);
+					await trigger(name);
+				}}>
+				<SelectTrigger
+					className={clsx({
+						"border-red-600": errorMessage,
+					})}>
+					<SelectValue placeholder={label} />
 				</SelectTrigger>
-				<SelectContent>
-					{/* <SelectItem value="light">Light</SelectItem>
-					<SelectItem value="dark">Dark</SelectItem>
-					<SelectItem value="system">System</SelectItem> */}
-					{universities.map((university) => {
-						return (
-							<SelectItem
-								key={university.label}
-								style={{ direction: "rtl" }}
-								value={university.value}>
-								{university.label}
-							</SelectItem>
-						);
-					})}
+				<SelectContent onBlur={register.onBlur}>
+					<ScrollArea className="h-60">
+						{options.map((option) => {
+							return (
+								<SelectItem key={option.label} value={option.value}>
+									{option.label}
+								</SelectItem>
+							);
+						})}
+					</ScrollArea>
 				</SelectContent>
 			</Select>
+			{errorMessage && (
+				<TypographyMuted className="text-red-600">
+					{errorMessage}
+				</TypographyMuted>
+			)}
 		</div>
 	);
 };

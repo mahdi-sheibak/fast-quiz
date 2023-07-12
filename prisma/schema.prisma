@@ -6,17 +6,15 @@ datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
   relationMode = "prisma"
-  //
-  // provider = "sqlite"
-  // url      = "file:./dev.db"
 }
 
 model Master {
-  id         String @id @default(cuid())
+  id         String    @id @default(cuid())
   fullName   String
-  email      String @unique
+  email      String    @unique
   password   String
   university String
+  Lesseon    Lesseon[]
 }
 
 model Question {
@@ -25,7 +23,10 @@ model Question {
   options    Option[]
   answererId String
   masterId   String
+  Lesseon    Lesseon? @relation(fields: [lesseonId], references: [id])
+  lesseonId  String?
 
+  @@index([lesseonId])
   @@map(name: "questions")
 }
 
@@ -39,10 +40,22 @@ model Option {
   @@map(name: "options")
 }
 
+model Lesseon {
+  id        String     @id @default(cuid())
+  name      String
+  questions Question[]
+  master    Master     @relation(fields: [masterId], references: [id])
+  masterId  String
+  students  Student[]
+
+  @@index([masterId])
+}
+
 model Student {
-  id         String @id @default(cuid())
+  id         String    @id @default(cuid())
   fullName   String
-  email      String @unique
+  email      String    @unique
   password   String
   university String
+  lesseons   Lesseon[]
 }

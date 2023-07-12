@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import { db } from "@/lib/db";
 
-export const GET = async () => {
+export const DELETE = async () => {
 	await db.question.deleteMany();
 	await db.option.deleteMany();
 

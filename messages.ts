@@ -30,16 +30,16 @@ export const messages = {
 		master: {
 			validation: {
 				fullName: {
-					min: "نام و نام خانوادگی اجباری است",
+					require: "نام و نام خانوادگی اجباری است",
 				},
 				university: {
-					min: "نام دانشگاه اجباری است",
+					require: "نام دانشگاه اجباری است",
 				},
 				email: {
-					min: "ایمیل اجباری است",
+					require: "ایمیل اجباری است",
 				},
 				password: {
-					min: "رمز عبور اجباری است",
+					require: "رمز عبور اجباری است",
 				},
 			},
 			fullName: {

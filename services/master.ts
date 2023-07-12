@@ -6,17 +6,19 @@ import { api } from "./api";
 export const masterSchema = z.object({
 	fullName: z
 		.string()
-		.min(1, { message: messages.register.master.validation.fullName.min }),
+		.nonempty(messages.register.master.validation.fullName.require),
 	university: z
-		.string()
-		.min(1, { message: messages.register.master.validation.fullName.min }),
+		.string({
+			required_error: messages.register.master.validation.university.require,
+		})
+		.nonempty(),
 	email: z
 		.string()
-		.min(1, { message: messages.register.master.validation.email.min })
+		.nonempty(messages.register.master.validation.email.require)
 		.email("ایمیل نامعتبر است"),
 	password: z
 		.string()
-		.min(1, { message: messages.register.master.validation.password.min }),
+		.nonempty(messages.register.master.validation.password.require),
 });
 
 export type Master = z.infer<typeof masterSchema>;
