@@ -11,6 +11,7 @@
 		"format": "prettier --check \"**/*.{ts,tsx,md}\"",
 		"format:fix": "prettier --write \"**/*.{ts,tsx,md}\"",
 		"check": "pnpm run format && pnpm run lint && pnpm run build",
+		"type-check": "tsc --noEmit",
 		"clean": "pnpm run format:fix && pnpm run lint:fix && pnpm run build",
 		"prepare": "husky install",
 		"postinstall": "prisma generate"

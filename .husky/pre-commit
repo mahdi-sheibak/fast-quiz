@@ -3,3 +3,4 @@
 
 echo "\033[33m ============= linting... ============= \033[0m"
 pnpm exec lint-staged
+pnpm run type-check

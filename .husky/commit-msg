@@ -2,4 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 echo "\033[33m ============= commiting... ============= \033[0m"
+pnpm exec cspell "$1"
 pnpm exec commitlint --edit $1
