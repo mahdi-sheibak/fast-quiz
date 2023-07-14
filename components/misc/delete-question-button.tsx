@@ -9,7 +9,7 @@ interface Props {
 	action: () => Promise<void>;
 }
 
-export const DeleteQuestionButton = ({ action }: Props) => {
+function DeleteQuestionButton({ action }: Props) {
 	const { onClick, loading } = useActionLoader(action);
 
 	return (
@@ -21,4 +21,6 @@ export const DeleteQuestionButton = ({ action }: Props) => {
 			{"حذف سوال"}
 		</IconButton>
 	);
-};
+}
+
+export { DeleteQuestionButton };

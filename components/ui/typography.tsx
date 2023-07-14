@@ -229,7 +229,7 @@ interface TypographyListProps {
 
 const TypographyList = ({ list, itemClassName }: TypographyListProps) => {
 	return (
-		<ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+		<ul className="my-6 mr-6 list-disc [&>li]:mt-2">
 			{list.map((item) => (
 				<li key={item} className={itemClassName}>
 					{item}

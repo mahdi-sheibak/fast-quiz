@@ -1,5 +1,9 @@
 import { cookies } from "next/headers";
-import { PenTool } from "lucide-react";
+import {
+	PresentationIcon,
+	BadgePlusIcon,
+	ClipboardListIcon,
+} from "lucide-react";
 
 import { TypographyH2 } from "@/components/ui/typography";
 import { Sidebar, SidebarItem } from "@/components/sidebar";
@@ -11,12 +15,17 @@ const sidebarItems: SidebarItem[] = [
 	{
 		href: "/dashboard/master",
 		label: "لیست درس ها",
-		icon: <PenTool className="ml-2 h-4 w-4" />,
+		icon: <PresentationIcon className="ml-2 h-4 w-4" />,
 	},
 	{
 		href: "/dashboard/master/create-lesson",
 		label: "ایجاد درس",
-		icon: <PenTool className="ml-2 h-4 w-4" />,
+		icon: <BadgePlusIcon className="ml-2 h-4 w-4" />,
+	},
+	{
+		href: "/dashboard/master/questions",
+		label: "لیست سوالات",
+		icon: <ClipboardListIcon className="ml-2 h-4 w-4" />,
 	},
 ];
 

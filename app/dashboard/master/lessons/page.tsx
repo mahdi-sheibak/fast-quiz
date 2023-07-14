@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { TypographyH3 } from "@/components/ui/typography";
 import { LinkButton } from "@/components/ui/link-button";
 
-export default async function MasterDashboard() {
+export default async function LessonsPage() {
 	const cookieStore = cookies();
 
 	const masterId = cookieStore.get("id");
@@ -15,13 +15,16 @@ export default async function MasterDashboard() {
 		},
 	});
 
+	if (!lessons.length) {
+		return (
+			<TypographyH3 className="text-red-700">
+				{"هنوز درسی ایجاد نشده!"}
+			</TypographyH3>
+		);
+	}
+
 	return (
 		<main className="flex flex-wrap gap-5">
-			{!lessons.length && (
-				<TypographyH3 className="text-red-700">
-					{"هنوز درسی ایجاد نشده!"}
-				</TypographyH3>
-			)}
 			{lessons.map((lesson) => (
 				<LinkButton
 					key={lesson.id}

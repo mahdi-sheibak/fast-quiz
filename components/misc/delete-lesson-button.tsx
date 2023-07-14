@@ -1,27 +1,26 @@
 "use client";
 
-import { LogOutIcon } from "lucide-react";
-
 import { IconButton } from "@/components/ui/icon-button";
 import { useActionLoader } from "@/hooks/use-action-loader";
+import { Trash2Icon } from "lucide-react";
 
 interface Props {
-	title: string;
 	action: () => Promise<void>;
 }
 
-function LogoutButton({ title, action }: Props) {
+const DeleteLessonButton = ({ action }: Props) => {
 	const { onClick, loading } = useActionLoader(action);
 
 	return (
 		<IconButton
-			variant="ghost"
-			icon={<LogOutIcon />}
-			loading={loading}
-			onClick={onClick}>
-			{title}
+			variant="destructive"
+			className="w-32"
+			icon={<Trash2Icon />}
+			onClick={onClick}
+			loading={loading}>
+			{"حذف درس"}
 		</IconButton>
 	);
-}
+};
 
-export { LogoutButton };
+export { DeleteLessonButton };

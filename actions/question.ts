@@ -66,21 +66,13 @@ export const createQuestionAction = async (
 	return lessonQuestion;
 };
 
-export const deleteQuestionAction = async (
-	questionId: string,
-	optionIds: string[]
-) => {
+export const deleteQuestionAction = async (questionId: string) => {
 	await db.question.delete({
 		where: {
 			id: questionId,
 		},
-	});
-
-	await db.option.deleteMany({
-		where: {
-			id: {
-				in: optionIds,
-			},
+		include: {
+			options: true,
 		},
 	});
 };

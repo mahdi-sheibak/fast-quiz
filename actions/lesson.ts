@@ -8,3 +8,14 @@ export const createLessonAction = (lessonData: Lesson) => {
 		data: lessonData,
 	});
 };
+
+export const deleteLessonAction = (lessonId: string) => {
+	return db.lesson.delete({
+		where: {
+			id: lessonId,
+		},
+		include: {
+			questions: true,
+		},
+	});
+};
