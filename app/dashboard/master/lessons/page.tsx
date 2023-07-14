@@ -1,7 +1,8 @@
-import { LinkButton } from "@/components/ui/link-button";
-import { TypographyH3 } from "@/components/ui/typography";
-import { db } from "@/lib/db";
 import { cookies } from "next/headers";
+
+import { db } from "@/lib/db";
+import { TypographyH3 } from "@/components/ui/typography";
+import { LinkButton } from "@/components/ui/link-button";
 
 export default async function MasterDashboard() {
 	const cookieStore = cookies();

@@ -3,7 +3,7 @@ import { clsx } from "clsx";
 
 interface TypographyHeadingProps
 	extends Omit<React.HTMLProps<HTMLHeadingElement>, "children"> {
-	children: string;
+	children: React.ReactNode;
 	underline?: boolean;
 }
 

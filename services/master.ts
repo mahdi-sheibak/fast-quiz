@@ -6,25 +6,25 @@ import { validation } from "@/locals";
 export const masterSchema = z.object({
 	fullName: z
 		.string({
-			required_error: validation.fullName.require,
+			required_error: validation.required,
 		})
-		.nonempty(validation.fullName.require),
+		.nonempty(validation.required),
 	university: z
 		.string({
-			required_error: validation.university.require,
+			required_error: validation.required,
 		})
 		.nonempty(),
 	email: z
 		.string({
-			required_error: validation.email.require,
+			required_error: validation.required,
 		})
-		.nonempty(validation.email.require)
+		.nonempty(validation.required)
 		.email(validation.email.wrong),
 	password: z
 		.string({
-			required_error: validation.password.require,
+			required_error: validation.required,
 		})
-		.nonempty(validation.password.require),
+		.nonempty(validation.required),
 });
 
 export type Master = z.infer<typeof masterSchema>;

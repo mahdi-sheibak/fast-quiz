@@ -14,6 +14,9 @@ export const messages = {
 			title: "ورود استاد",
 			register: "حسابی ندارید؟ ثبت نام استاد",
 		},
+		dashboard: {
+			title: "داشبورد استاد",
+		},
 	},
 	student: {
 		login: {
@@ -32,5 +35,9 @@ export const messages = {
 	},
 	password: {
 		label: "رمز عبور",
+	},
+	lesson: {
+		create_lesson: "نام درس",
+		submit_lesson: "ایجاد درس",
 	},
 };

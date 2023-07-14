@@ -8,15 +8,15 @@ import { z } from "zod";
 const loginSchema = z.object({
 	email: z
 		.string({
-			required_error: validation.email.require,
+			required_error: validation.required,
 		})
-		.nonempty(validation.email.require)
+		.nonempty(validation.required)
 		.email("ایمیل نامعتبر است"),
 	password: z
 		.string({
-			required_error: validation.password.require,
+			required_error: validation.required,
 		})
-		.nonempty(validation.password.require),
+		.nonempty(validation.required),
 });
 
 export type Master = z.infer<typeof loginSchema>;

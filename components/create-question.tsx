@@ -5,14 +5,14 @@ import { useForm } from "@/hooks/use-form";
 import { Question, questionSchema } from "@/services/question";
 
 interface CreateQuestionFormProps {
-	action: (question: Question) => Promise<void>;
+	onSubmit: (question: Question) => Promise<void>;
 }
 
-export function CreateQuestionForm({ action }: CreateQuestionFormProps) {
+const CreateQuestionForm = ({ onSubmit }: CreateQuestionFormProps) => {
 	const form = useForm(questionSchema);
 
 	return (
-		<Form<Question> form={form} action={action} className="w-full ">
+		<Form<Question> form={form} action={onSubmit} className="w-full ">
 			<div className="mb-3 flex flex-col gap-3">
 				<Form.Field register={form.register("text")} label="متن سوال" />
 				<Form.Field
@@ -27,4 +27,6 @@ export function CreateQuestionForm({ action }: CreateQuestionFormProps) {
 			<Form.Submit>ایجاد سوال</Form.Submit>
 		</Form>
 	);
-}
+};
+
+export { CreateQuestionForm };

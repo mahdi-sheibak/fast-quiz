@@ -2,42 +2,32 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import { PenTool } from "lucide-react";
 
 import { LinkButton, LinkButtonProps } from "@/components/ui/link-button";
 
-interface Link {
+export interface SidebarItem {
 	href: LinkButtonProps["href"];
 	label: string;
 	icon: React.ReactNode;
 }
 
-const links: Link[] = [
-	{
-		href: "/dashboard/master/create",
-		label: "ایجاد سوال",
-		icon: <PenTool className="ml-2 h-4 w-4" />,
-	},
-	{
-		href: "/dashboard/master/questions",
-		label: "لیست سوالات",
-		icon: <PenTool className="ml-2 h-4 w-4" />,
-	},
-];
+interface SidebarProps {
+	items: SidebarItem[];
+}
 
-const Sidebar = () => {
+const Sidebar = ({ items }: SidebarProps) => {
 	const pathName = usePathname();
 
 	return (
 		<div className="flex flex-col gap-4 p-5">
-			{links.map((link) => (
+			{items.map((item) => (
 				<LinkButton
-					key={link.label}
-					href={link.href}
-					variant={link.href === pathName ? "secondary" : "ghost"}
-					className="w-40">
-					{link.icon}
-					{link.label}
+					key={item.label}
+					href={item.href}
+					variant={item.href === pathName ? "secondary" : "ghost"}
+					className="w-40 justify-start">
+					{item.icon}
+					{item.label}
 				</LinkButton>
 			))}
 		</div>
