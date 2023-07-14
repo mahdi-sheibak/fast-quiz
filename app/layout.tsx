@@ -4,7 +4,7 @@ import { clsx } from "clsx";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@/components/analytics";
 import { iranSansExtraFont } from "@/lib/fonts";
-import { messages } from "@/messages";
+import { messages } from "@/locals";
 
 import "@/styles/globals.scss";
 

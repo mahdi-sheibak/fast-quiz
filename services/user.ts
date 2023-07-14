@@ -1,15 +1,13 @@
 import { z } from "zod";
 
-import { messages } from "@/messages";
+import { validation } from "@/locals";
 
 export const userSchema = z.object({
 	email: z
 		.string()
-		.nonempty(messages.register.master.validation.email.require)
-		.email("ایمیل نامعتبر است"),
-	password: z
-		.string()
-		.nonempty(messages.register.master.validation.password.require),
+		.nonempty(validation.email.require)
+		.email(validation.email.wrong),
+	password: z.string().nonempty(validation.password.require),
 });
 
 export type User = z.infer<typeof userSchema>;

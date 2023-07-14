@@ -1,24 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
 import isEmpty from "lodash/isEmpty";
 
 import { db } from "@/lib/db";
-
-const masterSchema = z.object({
-	email: z.string().nonempty().email(),
-	fullName: z.string().nonempty(),
-	password: z.string().nonempty(),
-	university: z.string().nonempty(),
-});
+import { createMasterAction } from "@/actions/master";
+import { masterSchema } from "@/services/master";
 
 export const POST = async (request: NextRequest) => {
 	try {
 		const masterBody = await request.json();
 		const validateMaster = masterSchema.parse(masterBody);
 
-		const master = await db.master.create({
-			data: validateMaster,
-		});
+		const master = await createMasterAction(validateMaster);
 
 		return NextResponse.json({
 			status: 200,

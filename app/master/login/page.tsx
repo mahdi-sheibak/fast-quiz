@@ -1,24 +1,16 @@
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 import { MasterLoginForm } from "@/components/master-login";
-import { db } from "@/lib/db";
 import { User } from "@/services/user";
+import { redirect } from "@/lib/misc";
+import { validation } from "@/locals";
+import { loginMaster } from "@/actions/login";
 
 export default function LoginMaster() {
 	const login = async (userData: User) => {
 		"use server";
-		const user = await db.master.findFirst({
-			where: {
-				email: {
-					equals: userData.email,
-				},
-				password: {
-					equals: userData.password,
-				},
-			},
-		});
-		if (!user) return "اطلاعات نادرست";
+		const user = await loginMaster(userData.email, userData.password);
+		if (!user) return validation.wrong.info;
 
 		cookies().set("type", "master");
 		cookies().set("email", user.email);
@@ -28,6 +20,7 @@ export default function LoginMaster() {
 		cookies().set("university", user.university);
 
 		redirect("/dashboard/master");
+		return null;
 	};
 
 	return (

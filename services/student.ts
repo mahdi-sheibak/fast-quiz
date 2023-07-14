@@ -3,7 +3,7 @@ import { z } from "zod";
 import { api } from "./api";
 import { validation } from "@/locals";
 
-export const masterSchema = z.object({
+export const studentSchema = z.object({
 	fullName: z
 		.string({
 			required_error: validation.fullName.require,
@@ -27,12 +27,12 @@ export const masterSchema = z.object({
 		.nonempty(validation.password.require),
 });
 
-export type Master = z.infer<typeof masterSchema>;
+export type Student = z.infer<typeof studentSchema>;
 
-export const createMaster = (master: Master) => {
+export const createStudent = (student: Student) => {
 	return api
-		.post("register/master/master", {
-			json: master,
+		.post("register/student", {
+			json: student,
 		})
 		.json();
 };

@@ -14,11 +14,11 @@ import { useForm } from "@/hooks/use-form";
 import { User, userSchema } from "@/services/user";
 import { messages } from "@/locals";
 
-interface MasterLoginFormProps {
+interface StudentLoginFormProps {
 	onSubmit: (user: User) => Promise<string | null>;
 }
 
-const MasterLoginForm = ({ onSubmit }: MasterLoginFormProps) => {
+const StudentLoginForm = ({ onSubmit }: StudentLoginFormProps) => {
 	const form = useForm<User>(userSchema);
 
 	const { toast } = useToast();
@@ -37,7 +37,7 @@ const MasterLoginForm = ({ onSubmit }: MasterLoginFormProps) => {
 		<Card className="w-[350px]">
 			<CardHeader>
 				<CardTitle className="text-center">
-					{messages.master.login.title}
+					{messages.student.login.title}
 				</CardTitle>
 			</CardHeader>
 
@@ -58,7 +58,7 @@ const MasterLoginForm = ({ onSubmit }: MasterLoginFormProps) => {
 				<CardFooter className="flex flex-col">
 					<Form.Submit className="w-full">{messages.actions.login}</Form.Submit>
 					<Link href="/master/register" className="mt-7" mute underline>
-						{messages.master.login.register}
+						{messages.student.login.register}
 					</Link>
 				</CardFooter>
 			</Form>
@@ -66,4 +66,4 @@ const MasterLoginForm = ({ onSubmit }: MasterLoginFormProps) => {
 	);
 };
 
-export { MasterLoginForm };
+export { StudentLoginForm };

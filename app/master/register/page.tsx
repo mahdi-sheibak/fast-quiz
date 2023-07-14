@@ -1,7 +1,7 @@
 import { MasterRegisterForm } from "@/components/master-register";
 import { createMasterAction } from "@/actions/master";
 import { Master } from "@/services";
-import { redirect } from "next/navigation";
+import { redirect } from "@/lib/misc";
 
 export default function RegisterMaster() {
 	const createMaster = async (masterData: Master) => {
@@ -22,7 +22,7 @@ export default function RegisterMaster() {
 			<div
 				className="hidden w-1/2 md:block
       ">
-				some threejs effect or any thing to do
+				master - some threejs effect or any thing to do
 			</div>
 		</main>
 	);

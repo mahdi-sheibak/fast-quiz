@@ -2,18 +2,18 @@
 
 import { Form } from "@/components/form/form";
 import { useForm } from "@/hooks/use-form";
-import { Master, masterSchema } from "@/services/master";
+import { Student, studentSchema } from "@/services/student";
 import { messages, universities } from "@/locals";
 
-interface MasterRegisterFormProps {
-	onSubmit: (master: Master) => Promise<void>;
+interface StudentRegisterFormProps {
+	onSubmit: (master: Student) => Promise<void>;
 }
 
-const MasterRegisterForm = ({ onSubmit }: MasterRegisterFormProps) => {
-	const form = useForm<Master>(masterSchema);
+const StudentRegisterForm = ({ onSubmit }: StudentRegisterFormProps) => {
+	const form = useForm<Student>(studentSchema);
 
 	return (
-		<Form<Master>
+		<Form<Student>
 			className="grid w-full gap-4 px-3 md:w-1/2 md:p-0"
 			action={onSubmit}
 			form={form}>
@@ -40,4 +40,4 @@ const MasterRegisterForm = ({ onSubmit }: MasterRegisterFormProps) => {
 	);
 };
 
-export { MasterRegisterForm };
+export { StudentRegisterForm };

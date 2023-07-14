@@ -2,21 +2,21 @@ import { NextRequest, NextResponse } from "next/server";
 import _isEmpty from "lodash/isEmpty";
 
 import { db } from "@/lib/db";
-import { messages } from "@/messages";
+import { validation } from "@/locals";
 import { z } from "zod";
 
 const loginSchema = z.object({
 	email: z
 		.string({
-			required_error: messages.register.master.validation.email.require,
+			required_error: validation.email.require,
 		})
-		.nonempty(messages.register.master.validation.email.require)
+		.nonempty(validation.email.require)
 		.email("ایمیل نامعتبر است"),
 	password: z
 		.string({
-			required_error: messages.register.master.validation.password.require,
+			required_error: validation.password.require,
 		})
-		.nonempty(messages.register.master.validation.password.require),
+		.nonempty(validation.password.require),
 });
 
 export type Master = z.infer<typeof loginSchema>;

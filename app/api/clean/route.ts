@@ -6,6 +6,8 @@ export const DELETE = async () => {
 	console.log("clean a data");
 
 	await db.master.deleteMany();
+	await db.student.deleteMany();
+	await db.lesson.deleteMany();
 	await db.question.deleteMany();
 	await db.option.deleteMany();
 

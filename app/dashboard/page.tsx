@@ -1,14 +1,15 @@
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+
+import { redirect } from "@/lib/misc";
 
 export default function Dashboard() {
-	const hasMaster = Boolean(cookies().get("master")?.value);
+	const loginType = cookies().get("type")?.value;
 
-	console.log("hasLogin::", JSON.stringify(cookies().get("master")));
+	!loginType && redirect("/");
 
-	hasMaster && redirect("/dashboard/master");
+	Boolean(loginType === "master") && redirect("/dashboard/master");
 
-	!hasMaster && redirect("/");
+	Boolean(loginType === "student") && redirect("/dashboard/student");
 
 	return <></>;
 }
