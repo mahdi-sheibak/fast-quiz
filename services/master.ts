@@ -5,7 +5,9 @@ import { api } from "./api";
 
 export const masterSchema = z.object({
 	fullName: z
-		.string()
+		.string({
+			required_error: messages.register.master.validation.fullName.require,
+		})
 		.nonempty(messages.register.master.validation.fullName.require),
 	university: z
 		.string({
@@ -13,11 +15,15 @@ export const masterSchema = z.object({
 		})
 		.nonempty(),
 	email: z
-		.string()
+		.string({
+			required_error: messages.register.master.validation.email.require,
+		})
 		.nonempty(messages.register.master.validation.email.require)
 		.email("ایمیل نامعتبر است"),
 	password: z
-		.string()
+		.string({
+			required_error: messages.register.master.validation.password.require,
+		})
 		.nonempty(messages.register.master.validation.password.require),
 });
 

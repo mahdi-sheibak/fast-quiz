@@ -1,9 +1,9 @@
-"use server";
+"use client";
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export const logout = async () => {
+export const logout = () => {
 	const cookieStore = cookies();
 
 	console.log("logout!");
@@ -16,6 +16,4 @@ export const logout = async () => {
 	cookieStore.delete("university");
 
 	redirect("/");
-
-	await new Promise((resolve) => resolve(true));
 };

@@ -55,7 +55,7 @@ export default async function QuestionItem({ params }: Props) {
 					<li key={option.id}>
 						<TypographyLarge
 							className={
-								option.id === question.answererId ? "text-green-500" : ""
+								option.id === question.correctOptionId ? "text-green-500" : ""
 							}>
 							{option.text}
 						</TypographyLarge>

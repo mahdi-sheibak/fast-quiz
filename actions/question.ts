@@ -35,7 +35,7 @@ export const createQuestionAction = async (
 					{ id: option4.id },
 				],
 			},
-			answererId: option1.id,
+			correctOptionId: option1.id,
 		},
 	});
 };

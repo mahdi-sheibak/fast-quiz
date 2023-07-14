@@ -9,38 +9,25 @@ datasource db {
 }
 
 model Master {
-  id         String    @id @default(cuid())
+  id         String   @id @default(cuid())
   fullName   String
-  email      String    @unique
+  email      String   @unique
   password   String
   university String
-  Lesseon    Lesseon[]
+  lessons    Lesson[]
 }
 
-model Question {
-  id         String   @id @default(cuid())
-  text       String
-  options    Option[]
-  answererId String
-  masterId   String
-  Lesseon    Lesseon? @relation(fields: [lesseonId], references: [id])
-  lesseonId  String?
-
-  @@index([lesseonId])
-  @@map(name: "questions")
+model Student {
+  id         String     @id @default(cuid())
+  fullName   String
+  email      String     @unique
+  password   String
+  university String
+  lessons    Lesson[]
+  answerers  Answerer[]
 }
 
-model Option {
-  id         String    @id @default(cuid())
-  text       String
-  Question   Question? @relation(fields: [questionId], references: [id])
-  questionId String?
-
-  @@index([questionId])
-  @@map(name: "options")
-}
-
-model Lesseon {
+model Lesson {
   id        String     @id @default(cuid())
   name      String
   questions Question[]
@@ -51,11 +38,38 @@ model Lesseon {
   @@index([masterId])
 }
 
-model Student {
+model Question {
+  id              String     @id @default(cuid())
+  text            String
+  options         Option[]
+  correctOptionId String?
+  masterId        String
+  lesson          Lesson?    @relation(fields: [lessonId], references: [id])
+  lessonId        String?
+  answerers       Answerer[]
+
+  @@index([lessonId])
+}
+
+model Option {
   id         String    @id @default(cuid())
-  fullName   String
-  email      String    @unique
-  password   String
-  university String
-  lesseons   Lesseon[]
+  text       String
+  questionId String?
+  Question   Question? @relation(fields: [questionId], references: [id])
+
+  @@index([questionId])
+}
+
+model Answerer {
+  id         String    @id @default(cuid())
+  question   Question? @relation(fields: [questionId], references: [id])
+  questionId String?
+  student    Student   @relation(fields: [studentId], references: [id])
+  studentId  String
+  optionId   String
+  currect    Boolean
+
+  @@index([questionId])
+  @@index([studentId])
+  @@index([optionId])
 }

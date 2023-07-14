@@ -1,22 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import _isEmpty from "lodash/isEmpty";
 
-import { createQuestionAction } from "@/actions/question";
-import { questionSchema } from "@/services/question";
 import { db } from "@/lib/db";
+
+const lessenSchema = z.object({
+	name: z.string().nonempty(),
+	masterId: z.string().nonempty(),
+});
 
 export const POST = async (request: NextRequest) => {
 	try {
 		const body = await request.json();
-
-		const validateQuestion = questionSchema.parse(body);
-
-		// cspell:ignore clhku1esr0000vbh2g05v7fbg
-		await createQuestionAction(validateQuestion, "clhku1esr0000vbh2g05v7fbg");
+		const validateLessen = lessenSchema.parse(body);
+		const lesson = await db.lesson.create({
+			data: validateLessen,
+		});
 
 		return NextResponse.json({
-			status: 200,
-			message: "Question Created",
+			status: "success",
+			lesson,
 		});
 	} catch (e) {
 		return NextResponse.json({
@@ -27,14 +30,16 @@ export const POST = async (request: NextRequest) => {
 };
 
 export const GET = async () => {
-	const questions = await db.question.findMany({
+	const lessons = await db.lesson.findMany({
 		include: {
-			options: true,
+			master: true,
+			students: true,
+			questions: true,
 		},
 	});
 
 	return NextResponse.json({
 		status: 200,
-		questions,
+		lessons,
 	});
 };
