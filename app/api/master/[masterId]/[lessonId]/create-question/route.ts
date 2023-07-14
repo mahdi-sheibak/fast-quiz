@@ -1,21 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
 import isEmpty from "lodash/isEmpty";
 
-import { db } from "@/lib/db";
+import { questionSchema } from "@/services/question";
+import { createQuestionAction } from "@/actions/question";
 
 interface Params {
 	masterId: string;
 	lessonId: string;
 }
-
-const schema = z.object({
-	text: z.string().nonempty(),
-	correctOption: z.string().nonempty(),
-	option1: z.string().nonempty(),
-	option2: z.string().nonempty(),
-	option3: z.string().nonempty(),
-});
 
 export const POST = async (
 	request: NextRequest,
@@ -26,63 +18,13 @@ export const POST = async (
 
 		const body = await request.json();
 
-		const validateData = schema.parse(body);
+		const validateData = questionSchema.parse(body);
 
-		const correctOption = await db.option.create({
-			data: {
-				text: validateData.correctOption,
-			},
-		});
-		const option2 = await db.option.create({
-			data: {
-				text: validateData.option1,
-			},
-		});
-		const option3 = await db.option.create({
-			data: {
-				text: validateData.option2,
-			},
-		});
-		const option4 = await db.option.create({
-			data: {
-				text: validateData.option3,
-			},
-		});
-
-		const question = await db.question.create({
-			data: {
-				masterId,
-				lessonId,
-				text: validateData.text,
-				correctOptionId: correctOption.id,
-				options: {
-					connect: [correctOption, option2, option3, option4],
-				},
-			},
-		});
-
-		await db.option.updateMany({
-			data: {
-				questionId: question.id,
-			},
-			where: {
-				OR: [
-					{ id: correctOption.id },
-					{ id: option2.id },
-					{ id: option3.id },
-					{ id: option4.id },
-				],
-			},
-		});
-
-		const lessonQuestion = await db.question.findFirst({
-			where: {
-				id: question.id,
-			},
-			include: {
-				options: true,
-			},
-		});
+		const lessonQuestion = await createQuestionAction(
+			validateData,
+			masterId,
+			lessonId
+		);
 
 		return NextResponse.json({
 			status: 200,

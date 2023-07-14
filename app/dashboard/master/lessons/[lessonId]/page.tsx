@@ -1,6 +1,21 @@
+import { cookies } from "next/headers";
+import { revalidatePath } from "next/cache";
+
 import { Button } from "@/components/ui/button";
 import { TypographyH3, TypographyH4 } from "@/components/ui/typography";
+import {
+	Dialog,
+	DialogContent,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from "@/components/ui/dialog";
+import { LinkButton } from "@/components/ui/link-button";
+import { CreateQuestionForm } from "@/components/create-question";
 import { db } from "@/lib/db";
+import { createQuestionAction } from "@/actions/question";
+import { Question } from "@/services/question";
+import { redirect } from "@/lib/misc";
 
 interface Props {
 	params: {
@@ -11,6 +26,8 @@ interface Props {
 export default async function LessonPage({ params }: Props) {
 	const { lessonId } = params;
 
+	const masterId = cookies().get("id")?.value;
+
 	const lesson = await db.lesson.findFirst({
 		where: {
 			id: lessonId,
@@ -20,11 +37,30 @@ export default async function LessonPage({ params }: Props) {
 		},
 	});
 
+	const createQuestion = async (question: Question) => {
+		"use server";
+
+		await createQuestionAction(question, question.masterId, lessonId);
+
+		revalidatePath(`/dashboard/master/lessons/${lessonId}`);
+		redirect(`/dashboard/master/lessons/${lessonId}`);
+	};
+
 	return (
 		<main className="flex flex-col gap-10">
-			<div className="flex items-center justify-between">
+			<div className="flex flex-wrap items-center justify-between gap-4">
 				<TypographyH3>نام درس: {lesson?.name}</TypographyH3>
-				<Button className="w-1/6">{"ایجاد سوال"}</Button>
+				<Dialog>
+					<DialogTrigger asChild>
+						<Button className="w-32">{"ایجاد سوال"}</Button>
+					</DialogTrigger>
+					<DialogContent>
+						<DialogHeader>
+							<DialogTitle>{"ایجاد سوال"}</DialogTitle>
+						</DialogHeader>
+						<CreateQuestionForm onSubmit={createQuestion} masterId={masterId} />
+					</DialogContent>
+				</Dialog>
 			</div>
 			{!lesson?.questions.length && (
 				<TypographyH3 className="text-red-700">
@@ -32,11 +68,19 @@ export default async function LessonPage({ params }: Props) {
 				</TypographyH3>
 			)}
 			{Boolean(lesson?.questions.length) && (
-				<div>
-					<TypographyH4>لیست سوالات</TypographyH4>
-					<div>
+				<div className="flex flex-col gap-4">
+					<TypographyH4>لیست سوالات:</TypographyH4>
+					<div className="flex flex-wrap gap-5 py-3">
 						{lesson?.questions.map((question) => {
-							return <span key={question.id}>{question.text}</span>;
+							return (
+								<LinkButton
+									href={`/dashboard/master/lessons/${lessonId}/${question.id}`}
+									key={question.id}
+									variant="secondary"
+									className="p-10">
+									{question.text}
+								</LinkButton>
+							);
 						})}
 					</div>
 				</div>

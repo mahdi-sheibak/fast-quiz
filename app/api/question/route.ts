@@ -12,7 +12,11 @@ export const POST = async (request: NextRequest) => {
 		const validateQuestion = questionSchema.parse(body);
 
 		// cspell:ignore clhku1esr0000vbh2g05v7fbg
-		await createQuestionAction(validateQuestion, "clhku1esr0000vbh2g05v7fbg");
+		await createQuestionAction(
+			validateQuestion,
+			validateQuestion.masterId,
+			"clhku1esr0000vbh2g05v7fbg"
+		);
 
 		return NextResponse.json({
 			status: 200,

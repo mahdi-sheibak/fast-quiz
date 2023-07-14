@@ -5,39 +5,65 @@ import { Question } from "@/services/question";
 
 export const createQuestionAction = async (
 	question: Question,
-	masterId: string
+	masterId: string,
+	lessonId: string
 ) => {
-	const option1 = await db.option.create({
-		data: { text: question.option1 },
-	});
-
-	const option2 = await db.option.create({
-		data: { text: question.option2 },
-	});
-
-	const option3 = await db.option.create({
-		data: { text: question.option3 },
-	});
-
-	const option4 = await db.option.create({
-		data: { text: question.option4 },
-	});
-
-	await db.question.create({
+	const correctOption = await db.option.create({
 		data: {
-			masterId: masterId,
-			text: question.text,
-			options: {
-				connect: [
-					{ id: option1.id },
-					{ id: option2.id },
-					{ id: option3.id },
-					{ id: option4.id },
-				],
-			},
-			correctOptionId: option1.id,
+			text: question.correctOption,
 		},
 	});
+	const option2 = await db.option.create({
+		data: {
+			text: question.option1,
+		},
+	});
+	const option3 = await db.option.create({
+		data: {
+			text: question.option2,
+		},
+	});
+	const option4 = await db.option.create({
+		data: {
+			text: question.option3,
+		},
+	});
+
+	const createdQuestion = await db.question.create({
+		data: {
+			masterId,
+			lessonId,
+			text: question.text,
+			correctOptionId: correctOption.id,
+			options: {
+				connect: [correctOption, option2, option3, option4],
+			},
+		},
+	});
+
+	await db.option.updateMany({
+		data: {
+			questionId: createdQuestion.id,
+		},
+		where: {
+			OR: [
+				{ id: correctOption.id },
+				{ id: option2.id },
+				{ id: option3.id },
+				{ id: option4.id },
+			],
+		},
+	});
+
+	const lessonQuestion = await db.question.findFirst({
+		where: {
+			id: createdQuestion.id,
+		},
+		include: {
+			options: true,
+		},
+	});
+	return lessonQuestion;
 };
 
 export const deleteQuestionAction = async (
