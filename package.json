@@ -23,9 +23,12 @@
 		"@radix-ui/react-scroll-area": "1.0.4",
 		"@radix-ui/react-select": "1.2.2",
 		"@radix-ui/react-toast": "1.1.4",
+		"@react-three/drei": "9.78.2",
+		"@react-three/fiber": "8.13.5",
 		"@types/node": "20.2.5",
 		"@types/react": "18.2.9",
 		"@types/react-dom": "18.2.4",
+		"@types/three": "0.154.0",
 		"@vercel/analytics": "1.0.1",
 		"autoprefixer": "10.4.14",
 		"class-variance-authority": "0.6.0",
@@ -44,6 +47,7 @@
 		"tailwind-merge": "1.13.1",
 		"tailwindcss": "3.3.2",
 		"tailwindcss-animate": "1.0.6",
+		"three": "0.154.0",
 		"zod": "3.21.4"
 	},
 	"devDependencies": {

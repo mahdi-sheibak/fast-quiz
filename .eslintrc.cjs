@@ -48,6 +48,7 @@ const config = {
 		"no-else-return": "warn",
 		"react/prop-types": "off",
 		"react/display-name": 1,
+		"react/no-unknown-property": 0,
 		"@typescript-eslint/no-misused-promises": [
 			2,
 			{ checksVoidReturn: { attributes: false } },
@@ -56,6 +57,6 @@ const config = {
 		"tailwindcss/classnames-order": "error",
 		"@next/next/no-html-link-for-pages": "off",
 	},
-}
+};
 
-module.exports = config
+module.exports = config;
