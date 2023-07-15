@@ -14,6 +14,8 @@ import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
+export const fetchCache = "force-no-store";
+
 interface ButtonProps {
 	lessonId: string;
 	studentId?: string;
