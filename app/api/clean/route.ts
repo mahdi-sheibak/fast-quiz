@@ -3,8 +3,6 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 
 export const DELETE = async () => {
-	console.log("clean a data");
-
 	await db.master.deleteMany();
 	await db.student.deleteMany();
 	await db.lesson.deleteMany();

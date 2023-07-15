@@ -6,8 +6,6 @@ import { redirect } from "next/navigation";
 export const logout = () => {
 	const cookieStore = cookies();
 
-	console.log("logout!");
-
 	cookieStore.delete("type");
 	cookieStore.delete("email");
 	cookieStore.delete("id");

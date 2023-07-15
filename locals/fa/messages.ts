@@ -23,6 +23,9 @@ export const messages = {
 			title: "ورود دانشجو",
 			register: "حسابی ندارید؟ ثبت نام دانشجو",
 		},
+		dashboard: {
+			title: "داشبورد دانشجو",
+		},
 	},
 	fullName: {
 		label: "نام و نام خانوادگی",
