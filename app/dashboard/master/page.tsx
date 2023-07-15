@@ -3,6 +3,8 @@ import { TypographyH3 } from "@/components/ui/typography";
 import { db } from "@/lib/db";
 import { cookies } from "next/headers";
 
+export const fetchCache = "force-no-store";
+
 export default async function MasterDashboard() {
 	const cookieStore = cookies();
 

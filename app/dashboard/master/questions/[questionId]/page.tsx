@@ -8,6 +8,8 @@ import { db } from "@/lib/db";
 import { redirect } from "@/lib/misc";
 import { revalidatePath } from "next/cache";
 
+export const fetchCache = "force-no-store";
+
 interface Props {
 	params: {
 		questionId: string;

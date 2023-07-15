@@ -4,6 +4,8 @@ import { db } from "@/lib/db";
 import { TypographyH3 } from "@/components/ui/typography";
 import { LinkButton } from "@/components/ui/link-button";
 
+export const fetchCache = "force-no-store";
+
 export default async function LessonsPage() {
 	const cookieStore = cookies();
 

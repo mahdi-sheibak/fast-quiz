@@ -20,6 +20,8 @@ import { deleteLessonAction } from "@/actions/lesson";
 import { DeleteLessonButton } from "@/components/misc/delete-lesson-button";
 import { IconButton } from "@/components/ui/icon-button";
 
+export const fetchCache = "force-no-store";
+
 interface Props {
 	params: {
 		lessonId: string;
