@@ -57,7 +57,7 @@ const StudentLoginForm = ({ onSubmit }: StudentLoginFormProps) => {
 				</CardContent>
 				<CardFooter className="flex flex-col">
 					<Form.Submit className="w-full">{messages.actions.login}</Form.Submit>
-					<Link href="/master/register" className="mt-7" mute underline>
+					<Link href="/student/register" className="mt-7" mute underline>
 						{messages.student.login.register}
 					</Link>
 				</CardFooter>

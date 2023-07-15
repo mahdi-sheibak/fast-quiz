@@ -45,9 +45,9 @@ export default async function LessonPage({ params }: Props) {
 				{lesson.questions.map((question) => (
 					<LinkButton
 						key={question.id}
-						href={`/dashboard/student/lessons/${lessonId}/${question.id}`}
+						href={`/dashboard/student/questions/${question.id}`}
 						variant="secondary"
-						className="w-60 p-10">
+						className="w-80 p-10">
 						{question.text}
 					</LinkButton>
 				))}

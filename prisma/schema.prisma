@@ -67,7 +67,7 @@ model Answerer {
   student    Student   @relation(fields: [studentId], references: [id])
   studentId  String
   optionId   String
-  currect    Boolean
+  correct    Boolean
 
   @@index([questionId])
   @@index([studentId])

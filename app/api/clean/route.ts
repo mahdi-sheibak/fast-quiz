@@ -3,11 +3,12 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 
 export const DELETE = async () => {
+	await db.option.deleteMany();
+	await db.question.deleteMany();
+	await db.answerer.deleteMany();
+	await db.lesson.deleteMany();
 	await db.master.deleteMany();
 	await db.student.deleteMany();
-	await db.lesson.deleteMany();
-	await db.question.deleteMany();
-	await db.option.deleteMany();
 
 	return NextResponse.json({
 		message: "clean database",
